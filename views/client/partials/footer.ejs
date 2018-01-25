@@ -14,6 +14,7 @@
 <script src="../../stylesheets/vendor/sparkline/index.js"></script>
 <script src="../../stylesheets/vendor/sweetalert/lib/sweet-alert.min.js"></script>
 <script src="../../stylesheets/vendor/toastr/build/toastr.min.js"></script>
+<script src="../../stylesheets/vendor/jstree/dist/jstree.min.js"></script>
 
 <!-- App scripts -->
 <script src="../../javascripts/homer.js"></script>
@@ -49,89 +50,208 @@
         }
       });
   });
-
-  $(function() {
-
-    /**
-     * Flot charts data and options
-     */
-    var data1 = [
-      [0, 55],
-      [1, 48],
-      [2, 40],
-      [3, 36],
-      [4, 40],
-      [5, 60],
-      [6, 50],
-      [7, 51]
-    ];
-    var data2 = [
-      [0, 56],
-      [1, 49],
-      [2, 41],
-      [3, 38],
-      [4, 46],
-      [5, 67],
-      [6, 57],
-      [7, 59]
-    ];
-
-    var chartUsersOptions = {
-      series: {
-        splines: {
-          show: true,
-          tension: 0.4,
-          lineWidth: 1,
-          fill: 0.4
-        },
-      },
-      grid: {
-        tickColor: "#f0f0f0",
-        borderWidth: 1,
-        borderColor: 'f0f0f0',
-        color: '#6a6c6f'
-      },
-      colors: ["#62cb31", "#efefef"],
-    };
-
-    $.plot($("#flot-line-chart"), [data1, data2], chartUsersOptions);
-
-    /**
-     * Flot charts 2 data and options
-     */
-    var chartIncomeData = [{
-      label: "line",
-      data: [
-        [1, 10],
-        [2, 26],
-        [3, 16],
-        [4, 36],
-        [5, 32],
-        [6, 51]
-      ]
-    }];
-
-    var chartIncomeOptions = {
-      series: {
-        lines: {
-          show: true,
-          lineWidth: 0,
-          fill: true,
-          fillColor: "#64cc34"
-
-        }
-      },
-      colors: ["#62cb31"],
-      grid: {
-        show: false
-      },
-      legend: {
-        show: false
-      }
-    };
-    $.plot($("#flot-income-chart"), chartIncomeData, chartIncomeOptions);
-  });
+  //
+  // $(function() {
+  //
+  //   /**
+  //    * Flot charts data and options
+  //    */
+  //   var data1 = [
+  //     [0, 55],
+  //     [1, 48],
+  //     [2, 40],
+  //     [3, 36],
+  //     [4, 40],
+  //     [5, 60],
+  //     [6, 50],
+  //     [7, 51]
+  //   ];
+  //   var data2 = [
+  //     [0, 56],
+  //     [1, 49],
+  //     [2, 41],
+  //     [3, 38],
+  //     [4, 46],
+  //     [5, 67],
+  //     [6, 57],
+  //     [7, 59]
+  //   ];
+  //
+  //   var chartUsersOptions = {
+  //     series: {
+  //       splines: {
+  //         show: true,
+  //         tension: 0.4,
+  //         lineWidth: 1,
+  //         fill: 0.4
+  //       },
+  //     },
+  //     grid: {
+  //       tickColor: "#f0f0f0",
+  //       borderWidth: 1,
+  //       borderColor: 'f0f0f0',
+  //       color: '#6a6c6f'
+  //     },
+  //     colors: ["#62cb31", "#efefef"],
+  //   };
+  //
+  //   $.plot($("#flot-line-chart"), [data1, data2], chartUsersOptions);
+  //
+  //   /**
+  //    * Flot charts 2 data and options
+  //    */
+  //   var chartIncomeData = [{
+  //     label: "line",
+  //     data: [
+  //       [1, 10],
+  //       [2, 26],
+  //       [3, 16],
+  //       [4, 36],
+  //       [5, 32],
+  //       [6, 51]
+  //     ]
+  //   }];
+  //
+  //   var chartIncomeOptions = {
+  //     series: {
+  //       lines: {
+  //         show: true,
+  //         lineWidth: 0,
+  //         fill: true,
+  //         fillColor: "#64cc34"
+  //
+  //       }
+  //     },
+  //     colors: ["#62cb31"],
+  //     grid: {
+  //       show: false
+  //     },
+  //     legend: {
+  //       show: false
+  //     }
+  //   };
+  //   $.plot($("#flot-income-chart"), chartIncomeData, chartIncomeOptions);
+  // });
 </script>
+
+      <script>
+          $(document).ready(function(){
+
+              $('#jstree1').jstree({
+                  'core' : {
+                      'check_callback' : true
+                  },
+                  'plugins' : [ 'types', 'dnd' ],
+                  'types' : {
+                      'default' : {
+                          'icon' : 'fa fa-folder'
+                      },
+                      'html' : {
+                          'icon' : 'fa fa-file-code-o'
+                      },
+                      'svg' : {
+                          'icon' : 'fa fa-file-picture-o'
+                      },
+                      'css' : {
+                          'icon' : 'fa fa-file-code-o'
+                      },
+                      'img' : {
+                          'icon' : 'fa fa-file-image-o'
+                      },
+                      'js' : {
+                          'icon' : 'fa fa-file-text-o'
+                      }
+
+                  }
+              });
+
+              $('#using_json').jstree({
+                  'core' : {
+                  'data' : [
+                      'Empty Folder',
+                      {
+                          'text': 'Resources',
+                          'state': {
+                              'opened': true
+                          },
+                          'children': [
+                              {
+                                  'text': 'css',
+                                  'children': [
+                                      {
+                                          'text': 'animate.css', 'icon': 'none'
+                                      },
+                                      {
+                                          'text': 'bootstrap.css', 'icon': 'none'
+                                      },
+                                      {
+                                          'text': 'main.css', 'icon': 'none'
+                                      },
+                                      {
+                                          'text': 'style.css', 'icon': 'none'
+                                      }
+                                  ],
+                                  'state': {
+                                      'opened': true
+                                  }
+                              },
+                              {
+                                  'text': 'js',
+                                  'children': [
+                                      {
+                                          'text': 'bootstrap.js', 'icon': 'none'
+                                      },
+                                      {
+                                          'text': 'inspinia.min.js', 'icon': 'none'
+                                      },
+                                      {
+                                          'text': 'jquery.min.js', 'icon': 'none'
+                                      },
+                                      {
+                                          'text': 'jsTree.min.js', 'icon': 'none'
+                                      },
+                                      {
+                                          'text': 'custom.min.js', 'icon': 'none'
+                                      }
+                                  ],
+                                  'state': {
+                                      'opened': true
+                                  }
+                              },
+                              {
+                                  'text': 'html',
+                                  'children': [
+                                      {
+                                          'text': 'layout.html', 'icon': 'none'
+                                      },
+                                      {
+                                          'text': 'navigation.html', 'icon': 'none'
+                                      },
+                                      {
+                                          'text': 'navbar.html', 'icon': 'none'
+                                      },
+                                      {
+                                          'text': 'footer.html', 'icon': 'none'
+                                      },
+                                      {
+                                          'text': 'sidebar.html', 'icon': 'none'
+                                      }
+                                  ],
+                                  'state': {
+                                      'opened': true
+                                  }
+                              }
+                          ]
+                      },
+                      'Fonts',
+                      'Images',
+                      'Scripts',
+                      'Templates',
+                  ]
+              } });
+
+          });
+      </script>
 
 </body>
 
