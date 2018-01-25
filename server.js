@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(cookieSession({
-  secret: process.env.COOKIE_SECRET,
+  secret: "SirTestALot",
 }));
 app.use(cookieParser());
 

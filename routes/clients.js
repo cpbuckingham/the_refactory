@@ -100,27 +100,7 @@ router.post("/new", function(req, res, next) {
           hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
 
         }).then(function() {
-          smtpTrans = nodemailer.createTransport({
-            service: "Gmail",
-            auth: {
-              user: process.env.GMAIL_USER,
-              pass: process.env.GMAIL_PASS,
-            }
-          });
-          mailOpts = {
-            from: userID.email,
-            to: req.body.email,
-            subject: "Welcome to The_Refactory",
-            text: "Welcome " + req.body.first_name + " , You have been added as a client to a migration project by our representatives. You can log on here with your username: " + req.body.username + " and a generated password: password1 https://therefactory.herokuapp.com/login ",
-            bcc: process.env.MY_EMAIL,
-          };
-          smtpTrans.sendMail(mailOpts, function(error, response) {
-            if (error) {
-              res.send("email not sent");
-            } else {
-              res.redirect("/clients");
-            }
-          });
+          res.redirect("/projects");
         });
       });
     } else {

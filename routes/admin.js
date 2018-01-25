@@ -96,29 +96,8 @@ router.post("/user/new", function(req, res, next) {
           //password1
           hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
           avatar: created_avatar,
-
         }).then(function() {
-          smtpTrans = nodemailer.createTransport({
-            service: "Gmail",
-            auth: {
-              user: process.env.GMAIL_USER,
-              pass: process.env.GMAIL_PASS
-            }
-          });
-          mailOpts = {
-            from: adminID.email,
-            to: req.body.email,
-            subject: "Welcome to The_Refactory",
-            text: "Welcome " + req.body.first_name + " , You have been added as a user to The_Refactory. You can log on here with your username: " + req.body.username + " and a generated password: password1 - https://therefactory.herokuapp.com/login ",
-            bcc: process.env.MY_EMAIL,
-          };
-          smtpTrans.sendMail(mailOpts, function(error, response) {
-            if (error) {
-              res.send("something went wrong, a user is created but no email was sent");
-            } else {
-              res.redirect("/admin");
-            }
-          });
+          res.redirect("/admin");
         });
       });
     } else {

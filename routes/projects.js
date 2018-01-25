@@ -84,27 +84,6 @@ router.post("/new", function(req, res, next) {
         status: req.body.status,
         avatar: req.body.avatar,
         user_id: userID.id,
-
-      }).then(function() {
-        smtpTrans = nodemailer.createTransport({
-          service: "Gmail",
-          auth: {
-            user: process.env.GMAIL_USER,
-            pass: process.env.GMAIL_PASS,
-          }
-        });
-        mailOpts = {
-          from: userID.email,
-          to: userID.email,
-          subject: "You have Created a Project on The_Refactory",
-          text: "You have created a project called " + req.body.name,
-          bcc: process.env.MY_EMAIL,
-        };
-        smtpTrans.sendMail(mailOpts, function(error, response) {
-          if (error) {
-            res.send("email not sent");
-          }
-        });
       }).then(function() {
         res.redirect("/projects");
       });
