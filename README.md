@@ -22,3 +22,11 @@
   heroku run knex migrate:latest
   heroku run knex seed:run
   heroku pg:psql --app therefactory
+
+
+
+
+
+
+client portal revamp & sync
+push to svn

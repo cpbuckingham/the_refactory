@@ -1,23 +1,97 @@
 <% include partials/header %>
-
   <% include nav/main %>
 
-    <!-- Main Wrapper -->
     <div id="wrapper">
-
+      <div class="row">
+        <div class="col-lg-12 text-center welcome-message">
+          <br>
+          <h2>Welcome to The_ReFactory</h2>
+          <p>Where data and analytics drive results for your migrations.</p>
+        </div>
+      </div>
       <div class="content animate-panel">
         <div class="row">
-          <div class="col-lg-12 text-center welcome-message">
-            <h2>
-                    Welcome to The_ReFactory
-                </h2>
+            <div class="col-sm-3">
+              <a href="#">
+                <div class="hpanel plan-box">
+                    <div class="panel-heading hbuilt text-center">
+                        <h4 class="font-bold">Discover</h4>
+                    </div>
+                    <div class="panel-body text-center">
+                        <i class="pe pe-7s-world big-icon text-info"></i>
+                        <h4 class="font-bold">
+                            Explore your Code in Detail
+                        </h4>
 
-            <p>
-              Where data and analytics drive results for your migrations.
-            </p>
-          </div>
+                        <p class="text-muted">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                        </p>
+                    </div>
+                </div>
+              </a>
+
+            </div>
+            <div class="col-sm-3">
+              <a href="#">
+                <div class="hpanel plan-box">
+                    <div class="panel-heading hbuilt text-center">
+                        <h4 class="font-bold">Annotate</h4>
+                    </div>
+                    <div class="panel-body text-center">
+                        <i class="pe pe-7s-paperclip big-icon text-warning"></i>
+                        <h4 class="font-bold">
+                            Define and Label your Code
+                        </h4>
+
+                        <p class="text-muted">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                        </p>
+                    </div>
+                </div>
+              </a>
+
+            </div>
+            <div class="col-sm-3">
+              <a href="#">
+                <div class="hpanel plan-box">
+                    <div class="panel-heading hbuilt text-center">
+                        <h4 class="font-bold">Refine</h4>
+                    </div>
+                    <div class="panel-body text-center">
+                        <i class="pe pe-7s-tools big-icon text-success"></i>
+                        <h4 class="font-bold">
+                            Manage your Code Annotation Lifecycle
+                        </h4>
+
+                        <p class="text-muted">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                        </p>
+                    </div>
+                </div>
+              </a>
+
+            </div>
+            <div class="col-sm-3">
+              <a href="#">
+                <div class="hpanel plan-box">
+                    <div class="panel-heading hbuilt text-center">
+                        <h4 class="font-bold">Plan</h4>
+                    </div>
+                    <div class="panel-body text-center">
+                        <i class="pe pe-7s-alarm big-icon text-danger"></i>
+                        <h4 class="font-bold">
+                            Plan for Change by Analyzing Impacts
+                        </h4>
+                        <p class="text-muted">
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                        </p>
+
+                    </div>
+                </div>
+                  </a>
+            </div>
         </div>
-        <div class="content ">
+        <div class="content animate-panel">
           <div class="row">
             <div class="col-lg-12">
               <div class="hpanel">
@@ -25,9 +99,7 @@
                   <div class="panel-tools">
                     <a class="showhide"><i class="fa fa-chevron-up"></i></a>
                     <a class="closebox"><i class="fa fa-times"></i></a>
-                  </div>
-                  Dashboard information and statistics
-                </div>
+                  </div>Dashboard information and statistics</div>
                 <div class="panel-body">
                   <div class="row">
                     <div class="col-md-3 text-center">
@@ -242,7 +314,6 @@
 
                       <div class="font-bold">28% <i class="fa fa-level-down"></i></div>
                     </div>
-
                   </div>
                 </div>
                 <div class="panel-footer">
@@ -341,7 +412,6 @@
                   Activity
                 </div>
                 <div class="panel-body list">
-
                   <div class="pull-right">
                     <a href="#" class="btn btn-xs btn-default">Today</a>
                     <a href="#" class="btn btn-xs btn-default">Month</a>
@@ -370,7 +440,6 @@
                       <div class="pull-right font-bold">44% <i class="fa fa-level-up text-success"></i></div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -378,96 +447,11 @@
         </div>
       </div>
 
-      <!-- Footer-->
       <footer class="footer">
         <span class="pull-right">
             The_ReFactory
         </span> Company @2017
       </footer>
-
     </div>
 
     <% include partials/footer %>
-<script>
-$(function() {
-
-  /**
-   * Flot charts data and options
-   */
-  var data1 = [
-    [0, 55],
-    [1, 48],
-    [2, 40],
-    [3, 36],
-    [4, 40],
-    [5, 60],
-    [6, 50],
-    [7, 51]
-  ];
-  var data2 = [
-    [0, 56],
-    [1, 49],
-    [2, 41],
-    [3, 38],
-    [4, 46],
-    [5, 67],
-    [6, 57],
-    [7, 59]
-  ];
-
-  var chartUsersOptions = {
-    series: {
-      splines: {
-        show: true,
-        tension: 0.4,
-        lineWidth: 1,
-        fill: 0.4
-      },
-    },
-    grid: {
-      tickColor: "#f0f0f0",
-      borderWidth: 1,
-      borderColor: 'f0f0f0',
-      color: '#6a6c6f'
-    },
-    colors: ["#62cb31", "#efefef"],
-  };
-
-  $.plot($("#flot-line-chart"), [data1, data2], chartUsersOptions);
-
-  /**
-   * Flot charts 2 data and options
-   */
-  var chartIncomeData = [{
-    label: "line",
-    data: [
-      [1, 10],
-      [2, 26],
-      [3, 16],
-      [4, 36],
-      [5, 32],
-      [6, 51]
-    ]
-  }];
-
-  var chartIncomeOptions = {
-    series: {
-      lines: {
-        show: true,
-        lineWidth: 0,
-        fill: true,
-        fillColor: "#64cc34"
-
-      }
-    },
-    colors: ["#62cb31"],
-    grid: {
-      show: false
-    },
-    legend: {
-      show: false
-    }
-  };
-  $.plot($("#flot-income-chart"), chartIncomeData, chartIncomeOptions);
-});
-</script>
