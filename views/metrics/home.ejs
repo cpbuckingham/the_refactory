@@ -1,0 +1,289 @@
+<% include partials/header %>
+<% include nav/main %>
+<style>
+header   {font-size: 14px;  font-weight: bold; text-decoration: underline;}
+under {text-decoration: underline;}
+small {font-size: 12.6px; }
+</style>
+
+<div id="wrapper">
+  <div class="normalheader ">
+    <div class="hpanel">
+      <div class="panel-body">
+        <a class="small-header-action" href="">
+          <div class="clip-header">
+            <i class="fa fa-arrow-up"></i>
+          </div>
+        </a>
+        <h2 class="font-light m-b-xs">
+            Metrics
+        </h2>
+      </div>
+    </div>
+  </div>
+
+<div class="content animate-panel">
+<div class="row">
+<div class="col-md-9">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="hpanel">
+					<div class="projects">
+							<div class="col-lg-4">
+									<div class="hpanel hgreen contact-panel">
+										<div class="panel-body" onclick="changeMorInfo('loc');chBackcolor('red');">
+											<h5><under>LOC summary</under></h5></br>
+											<div class="text-muted font-bold m-b-xs">
+											<p><b>COBOL LOC:</b> 2,512,903</p>
+											<p><b>JCL LOC:</b> 308,453</p>
+											<p><b>Assembler LOC:</b> 192,384</p>
+                      <p><b>Other LOC:</b> 54,102</p></br>
+										</div>
+										</div>
+									</div>
+							</div>
+					</div>
+					<div class="projects">
+							<div class="col-lg-4">
+									<div class="hpanel hgreen contact-panel">
+										<div class="panel-body" onclick="changeMorInfo('interfaces');chBackcolor('green');">
+											<h5><under>Interfaces summary</under></h5></br>
+											<div class="text-muted font-bold m-b-xs">
+											<p><b>ABC: 903</b></p>
+											<p><b>DEF: 453</b></p>
+											<p><b>XYZ: 384</b></p>
+                      <p><b>Other: 732</b></p></br>
+										</div>
+										</div>
+									</div>
+							</div>
+					</div>
+					<div class="projects">
+							<div class="col-lg-4">
+									<div class="hpanel hgreen contact-panel" id="three">
+										<div class="panel-body" onclick="changeMorInfo('tpp');chBackcolor('blue');">
+												<h5><under>TPP summary</under></h5></br>
+												<div class="text-muted font-bold m-b-xs">
+												<under>Top 3:</under></br>
+												1. IBM IMS</br>
+												<small>2. Enterprise COBOL (z/OS)</small></br>
+                        3. Windows Service(Linus)</br>
+										</div>
+										</div>
+									</div>
+							</div>
+					</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="hpanel">
+        <div class="panel-heading">
+          <div class="panel-tools">
+            <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+            <a class="closebox"><i class="fa fa-times"></i></a>
+          </div>
+          Recently active projects
+        </div>
+        <div class="panel-body list">
+          <div class="pull-right">
+
+          <button class="btn btn-xs btn-default" onclick="showCharts()"> Charts</button>
+          <button class="btn btn-xs btn-default" onclick="showSemoss()"> SEMOSS</button>
+        </div>
+
+                          <div class="panel-title">Data</div>
+                        </br>
+                          <div id="charts" >
+          <div class="table-responsive project-list">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+
+                  <th colspan="2">Project</th>
+                  <th>Completed</th>
+                  <th>Task</th>
+                  <th>Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" class="i-checks" checked></td>
+                  <td>Contract with Zender Company
+                    <br/>
+                    <small><i class="fa fa-clock-o"></i> Created 14.08.2015</small>
+                  </td>
+                  <td>
+                    <span class="pie">1/5</span>
+                  </td>
+                  <td><strong>20%</strong></td>
+                  <td>Jul 14, 2013</td>
+                  <td><a href=""><i class="fa fa-check text-success"></i></a></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" class="i-checks"></td>
+                  <td>There are many variations of passages
+                    <br/>
+                    <small><i class="fa fa-clock-o"></i> Created 21.07.2015</small>
+                  </td>
+                  <td>
+                    <span class="pie">1/4</span>
+                  </td>
+                  <td><strong>40%</strong></td>
+                  <td>Jul 16, 2013</td>
+                  <td><a href=""><i class="fa fa-check text-navy"></i></a></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" class="i-checks" checked></td>
+                  <td>Contrary to popular belief
+                    <br/>
+                    <small><i class="fa fa-clock-o"></i> Created 12.06.2015</small>
+                  </td>
+                  <td>
+                    <span class="pie">0.52/1.561</span>
+                  </td>
+                  <td><strong>75%</strong></td>
+                  <td>Jul 18, 2013</td>
+                  <td><a href=""><i class="fa fa-check text-navy"></i></a></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" class="i-checks"></td>
+                  <td>Gamma project
+                    <br/>
+                    <small><i class="fa fa-clock-o"></i> Created 06.03.2015</small>
+                  </td>
+                  <td>
+                    <span class="pie">226/360</span>
+                  </td>
+                  <td><strong>16%</strong></td>
+                  <td>Jul 22, 2013</td>
+                  <td><a href=""><i class="fa fa-check text-navy"></i></a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+          <div id="semoss" style="display: none;">
+    <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;"src="http://localhost:8080/SemossWeb/#!/insight?type=single&engine=call_chain_demo&id=dca0ab7d-20a3-4878-b6b8-eb147fc0b348&panel=0"></iframe>
+  </div>
+        </div>
+
+      </div>
+    </div>
+</div>
+</div>
+
+<div class="projects">
+  <div class="col-md-3">
+    <div class="hpanel hgreen contact-panel">
+      <div class="panel-body">
+        <div class="m-b-md" id="moreinfotab">
+          <h5>
+              More Information
+          </h5></br>
+				   <p>
+                Select a report to view more information
+           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<footer class="footer">
+<span class="pull-right">
+  The_ReFactory
+</span> Company @2017
+</footer>
+</div>
+
+<script type= "text/javascript">
+function changeMorInfo(val) {
+var info = document.getElementById("moreinfotab");
+info.innerHTML = "Select a report to view more information";
+if (val == "loc") {
+info.innerHTML = "<h5>More Information: LOC</h5></br><p><span><header>Nodes by Complexity</header>"
+                  +"&nbsp;<b>Easy:</b> 51,597</br>"
+                  +"&nbsp;<b>Complex:</b> 37,215</br>"
+                  +"&nbsp;<b>Very Complex:</b> 135,329</br>"
+                  +"&nbsp;<b>Unmaintainable:</b> 1,377,544</br>"
+                  +"&nbsp;<b>Total:</b> 1,601,685</br></span></p></br>"+
+      				"<p><span><header>LOC by Complexity:</header>"
+      							+"&nbsp;<b>Easy:</b> 81,325</br>"
+      							+"&nbsp;<b>Complex:</b> 25,561</br>"
+      							+"&nbsp;<b>Very Complex:</b> 83,991</br>"
+      							+"&nbsp;<b>Unmaintainable:</b> 1,072,480</br>"
+      							+"&nbsp;<b>Total:</b> 1,179,336</br></br>"+
+              "<p><span><header>LOC by Prefix:</header>"
+      							+"&nbsp;<b>HDB:</b> 624,837</br>"
+      							+"&nbsp;<b>HIQ:</b> 237,017</br>"
+      							+"&nbsp;<b>MPR:</b> 259,894</br>"
+      							+"&nbsp;<b>NDQ:</b> 57,618</br>"
+                    +"</br><div align='right'><b><under>See More >></under></b></div>";
+}
+if (val == "interfaces") {
+info.innerHTML = "<h5>More Information: Interfaces</h5></br><p><span><header>Interface Observations:</header>"
+                  +"<b>Unique Interfaces:</b> 17</br>"
+                  +"<b>Interface Occurrences:</b> 33</br>"
+                  +"<b>COBOL Interfaces: </b></br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;628 modules</br>"
+                  +"<b>JCL Interfaces:</b></br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 44 execs</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 120 job details</br></br>"+
+              "<p><span><header>Inbound Interfaces:</header>"
+                    +"1. Adjudication</br>"
+                    +"2. Mixer</br>"
+                    +"3. Modeler</br>"
+      							+"4. GNCONTRS</br>"
+      							+"5. IYM9000A</br>"
+      							+"6. Provider</br>"
+      							+"7. Fault Analyzer</br></br>"+
+      				"<p><span><header>Outbound Interfaces:</header>"
+      							+"1. AEPS</br>"
+      							+"2. Claims</br>"
+                    +"</br><div align='right'><b><under>See More >></under></b></div>";
+}
+if (val == "tpp") {
+info.innerHTML = "<h5>More Information: TPP</h5></br><b>TPP by Data Layer</b></br></br><p><span><header>Service Layer:</header>"
+                  +"1. <b>Enterprise COBOL for</b></br>"
+                  +"&nbsp;&nbsp;&nbsp;&nbsp;<b>z/OS (ABE):</b> 97</br>"
+                  +"2. <b> Windows Service for</b></br>"
+                  +"&nbsp;&nbsp;&nbsp;&nbsp;<b>Linux (WSL):</b>93</br>"
+                  +"3. <b>System Error (SYS):</b> 5</br>"
+                  +"  4. <b>WGM:</b> 4</br>"
+                  +"5. <b>IBM Utility (CEE):</b> 2</br>"
+                  +"6. <b>MedAccess Components:</b> 1</br></br>"
+            +"<p><span><header>Data Layer:</header>"
+                  +"1. <b>IBM IMS (AIB, CBL, DLI):</b></br>&nbsp;&nbsp;&nbsp;&nbsp; 2,493</br>"
+                  +"2. <b>IBM tableBASE (TBC):</b> 9</br>"
+                  +"3. <b>NTIS-MS CRG (D99):</b> 3</br>"
+                  +"4. <b>DB2 Data Access</b> </br>"
+                  +"&nbsp;&nbsp;&nbsp;&nbsp;<b>(DSN, NDB):</b> 2</br>"
+                  +"</br><div align='right'><b><under>See More >></under></b></div>";
+          }
+  }
+
+  function chBackcolor(color) {
+   document.body.style.background = color;
+}
+function showCharts(){
+  var charts = document.getElementById("charts");
+  var semoss = document.getElementById("semoss");
+  if (charts.style.display === "none") {
+      charts.style.display = "block";
+      semoss.style.display = "none";
+  }
+
+}
+function showSemoss(){
+  var charts = document.getElementById("charts");
+  var semoss = document.getElementById("semoss");
+  if (semoss.style.display === "none") {
+      semoss.style.display = "block";
+      charts.style.display = "none";
+  }
+}
+</script>
+<% include partials/footer %>
