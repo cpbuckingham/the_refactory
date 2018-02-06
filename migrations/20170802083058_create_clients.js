@@ -10,6 +10,7 @@ exports.up = function(knex, Promise) {
     table.string("email").unique();
     table.string("hashed_password");
     table.string("avatar");
+    table.string("scope").defaultTo("All");
     table.integer("user_id").unsigned().index().references("id").inTable("users").onDelete("SET NULL");
     table.integer("project_id").unsigned().index().references("id").inTable("projects").onDelete("SET NULL");
     table.timestamps(true, true);

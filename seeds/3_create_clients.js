@@ -10,6 +10,7 @@ exports.seed = function(knex, Promise) {
           email: "client1@gmail.com",
           //password1
           hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
+          scope: "All",
           user_id: 2,
           project_id: 1,
           avatar: "https://octodex.github.com/images/droidtocat.png"
@@ -22,6 +23,7 @@ exports.seed = function(knex, Promise) {
           email: "client2@gmail.com",
           //password1
           hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
+          scope: "All",
           user_id: 2,
           project_id: 1,
           avatar: "https://octodex.github.com/images/twenty-percent-cooler-octocat.png"
@@ -34,6 +36,7 @@ exports.seed = function(knex, Promise) {
           email: "client3@gmail.com",
           //password1
           hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
+          scope: "All",
           user_id: 2,
           project_id: 1,
           avatar: "https://octodex.github.com/images/poptocat_v2.png"
@@ -46,6 +49,7 @@ exports.seed = function(knex, Promise) {
           email: "client4@gmail.com",
           //password1
           hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
+          scope: "All",
           user_id: 3,
           project_id: 1,
           avatar: "https://octodex.github.com/images/luchadortocat.png"
@@ -58,6 +62,7 @@ exports.seed = function(knex, Promise) {
           email: "client5@gmail.com",
           //password1
           hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
+          scope: "All",
           user_id: 2,
           project_id: 2,
           avatar: "https://octodex.github.com/images/gobbleotron.gif"
@@ -70,6 +75,7 @@ exports.seed = function(knex, Promise) {
           email: "client6@gmail.com",
           //password1
           hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
+          scope: "All",
           user_id: 2,
           project_id: 2,
           avatar: "https://octodex.github.com/images/privateinvestocat.jpg"
@@ -82,6 +88,7 @@ exports.seed = function(knex, Promise) {
           email: "client7@gmail.com",
           //password1
           hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
+          scope: "All",
           user_id: 1,
           project_id: 3,
           avatar: "https://octodex.github.com/images/gracehoppertocat.jpg"
@@ -94,6 +101,7 @@ exports.seed = function(knex, Promise) {
           email: "client8@gmail.com",
           //password1
           hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
+          scope: "All",
           user_id: 1,
           project_id: 3,
           avatar: "https://octodex.github.com/images/hanukkat.png"
@@ -106,6 +114,7 @@ exports.seed = function(knex, Promise) {
           email: "client9@gmail.com",
           //password1
           hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
+          scope: "All",
           user_id: 2,
           project_id: 3,
           avatar: "https://octodex.github.com/images/mcefeeline.jpg"
@@ -118,6 +127,7 @@ exports.seed = function(knex, Promise) {
           email: "client10@gmail.com",
           //password1
           hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
+          scope: "All",
           user_id: 3,
           project_id: 3,
           avatar: "https://octodex.github.com/images/maxtocat.gif"
@@ -130,6 +140,7 @@ exports.seed = function(knex, Promise) {
           email: "client11@gmail.com",
           //password1
           hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
+          scope: "All",
           user_id: 2,
           project_id: 3,
           avatar: "https://octodex.github.com/images/dinotocat.png"
@@ -142,9 +153,23 @@ exports.seed = function(knex, Promise) {
           email: "client12@gmail.com",
           //password1
           hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
+          scope: "All",
           user_id: 1,
           project_id: 4,
           avatar: "https://octodex.github.com/images/adventure-cat.png"
+        }),
+        knex("clients").insert({
+          id: 13,
+          first_name: "Yuri",
+          last_name: "Steinschreiber",
+          username: "ystein",
+          email: "client13@gmail.com",
+          //password1
+          hashed_password: "$2a$12$65iDLL6bbEuqaz.1dHaJa.un61um2yPYnj3bXoW2WXoyDEF9Ruqs2",
+          scope: "All",
+          user_id: 3,
+          project_id: 1,
+          avatar: "https://octodex.github.com/images/carlostocat.gif"
         })
       ]);
     });

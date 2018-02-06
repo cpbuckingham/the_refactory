@@ -25,8 +25,4 @@
 
 
 
-
-
-
-client portal revamp & sync
 push to svn
