@@ -1,6 +1,222 @@
 <% include partials/header %>
 
-  <% include nav/main %>
+<!-- Header -->
+<style type="text/css">
+button:focus
+{
+  outline:none;
+}
+</style>
+<div id="header">
+  <div class="color-line">
+  </div>
+  <div id="logo" class="light-version">
+    <span>
+            The_ReFactory
+        </span>
+  </div>
+  <nav role="navigation">
+    <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+    <div class="small-logo">
+      <span class="text-primary"> The_ReFactory</span>
+    </div>
+    <form role="search" class="navbar-form-custom" method="post" action="#">
+      <div class="form-group">
+        <input type="text" placeholder="Search" class="form-control" name="search">
+      </div>
+    </form>
+    <div class="mobile-menu">
+      <button type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-target="#mobile-collapse">
+                <i class="fa fa-chevron-down"></i>
+            </button>
+      <div class="collapse mobile-navbar" id="mobile-collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <a class="" href="/auth/login">Login</a>
+          </li>
+          <li>
+            <a class="logout">Logout</a>
+          </li>
+          <li>
+            <a class="" href="/client/<%=client.id%>/edit">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-right">
+      <ul class="nav navbar-nav no-borders">
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                        <i class="pe-7s-speaker"></i>
+                    </a>
+          <ul class="dropdown-menu hdropdown notification animated flipInX">
+            <li>
+              You have 0 new notifications
+            </li>
+            <li class="summary"><a href="#">See all notifications</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                        <i class="pe-7s-keypad"></i>
+                    </a>
+
+          <div class="dropdown-menu hdropdown bigmenu animated flipInX">
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="#">
+                                        <i class="pe pe-7s-world text-info"></i>
+                                        <h5>Discover</h5>
+                                    </a>
+                  </td>
+                  <td>
+                    <a href="#">
+                                        <i class="pe pe-7s-paperclip text-warning"></i>
+                                        <h5>Annotate</h5>
+                                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#">
+                                        <i class="pe pe-7s-tools text-success"></i>
+                                        <h5>Refine</h5>
+                                    </a>
+                  </td>
+                  <td>
+                    <a href="#">
+                                        <i class="pe pe-7s-alarm text-danger"></i>
+                                        <h5>Plan</h5>
+                                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle label-menu-corner" href="#" data-toggle="dropdown" id="scope-dropdown">
+                      <h5>Scope: <%=client.scope%></h5>
+                    </a>
+          <ul id="scope-dropdown-list" class="dropdown-menu hdropdown">
+            <div class="title">
+              Current Scope: <%=client.scope%>
+            </div>
+            <% project.rules.scope.forEach(function (project_scope) { %>
+            <li>
+              <form action="/client/<%=client.id%>/scope?_method=PUT" method="POST">
+                <button style="width: 174px; height: 35px; padding: 0; border: none; background: none;" type="submit" name="scope" value="<%=project_scope%>" class="scope-dropdown-item" id="scope-dropdown-item-<%=project_scope%>"><%=project_scope%></button>
+              </form>
+            </li>
+            <% }) %>
+            <!-- <li >
+              <form action="/client/<%=client.id%>?_method=PUT" method="POST">
+                <button style="width: 174px; height: 35px; padding: 0; border: none; background: none;" type="submit" name="scope" value="Billing" class="scope-dropdown-item" id="scope-dropdown-item-billing">Billing</button>
+              </form>
+            </li>
+            <li>
+              <form action="/client/<%=client.id%>?_method=PUT" method="POST">
+                <button style="width: 174px; height: 35px; padding: 0; border: none; background: none;" type="submit" name="scope" value="Enrollment" class="scope-dropdown-item" id="scope-dropdown-item-enrollment">Enrollment</button>
+              </form>
+            </li>
+            <li>
+              <form action="/client/<%=client.id%>?_method=PUT" method="POST">
+                <button style="width: 174px; height: 35px; padding: 0; border: none; background: none;" type="submit" name="scope" value="Claims" class="scope-dropdown-item" id="scope-dropdown-item-claims">Claims</button>
+              </form>
+            </li> -->
+
+            <li class="summary"><a href="#">Create New Scope</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="logout">
+                        <i class="pe-7s-upload pe-rotate-90"></i>
+                    </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<!-- Navigation -->
+<aside id="menu">
+  <div id="navigation">
+    <div class="profile-picture">
+      <a href="/client/<%=client.id%>/edit">
+                <img src="<%=client.avatar%>" height="70" width="70" class="img-circle m-b" alt="logo">
+            </a>
+
+      <div class="stats-label text-color">
+        <span class="font-extra-bold font-uppercase"><%=client.first_name%> <%=client.last_name%></span>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                        <small class="text-muted"> Edit <b class="caret"></b></small>
+                    </a>
+          <ul class="dropdown-menu animated flipInX m-t-xs">
+            <li><a href="/client/edit/<%=client.id%>">Edit Profile</a></li>
+            <li><a href="/client/<%=client.project_id%>/project">Mange Project</a></li>
+            <li class="divider"></li>
+            <li><a class="logout">Logout</a></li>
+          </ul>
+        </div>
+
+
+        <div id="sparkline1" class="small-chart m-t-sm"></div>
+        <div>
+          <h4 class="font-extra-bold m-b-xs">
+                        1749 / 2000
+                    </h4>
+          <small class="text-muted">Average migration quality over time</small>
+        </div>
+      </div>
+    </div>
+
+    <ul class="nav" id="side-menu">
+      <li>
+        <a href="/client"> <span class="nav-label">Dashboard</span> </a>
+      </li>
+      <li>
+        <a href="/client/<%=client.project_id%>/project"> <span class="nav-label">Project</span> </a>
+      </li>
+      <li>
+        <a href="/client/<%=client.project_id%>/metrics"> <span class="nav-label">Metrics</span> </a>
+      </li>
+      <!-- <li>
+                <a href="/client"><span class="nav-label">Sample</span><span class="fa arrow"></span> </a>
+                <ul class="nav nav-second-level">
+                    <li><a href="forms_elements.html">Forms elements</a></li>
+                    <li><a href="forms_extended.html">Forms extended</a></li>
+                    <li><a href="text_editor.html">Text editor</a></li>
+                    <li><a href="wizard.html">Wizard</a></li>
+                    <li><a href="validation.html">Validation</a></li>
+                </ul>
+            </li> -->
+      <li>
+    </ul>
+  </div>
+</aside>
+
+<script>
+  switch ("<%=client.scope%>") {
+    case "All":
+      document.getElementById("scope-dropdown-item-All").style.color = "green";
+      break;
+    case "Billing":
+      document.getElementById("scope-dropdown-item-Billing").style.color = "green";
+      break;
+    case "Enrollment":
+      document.getElementById("scope-dropdown-item-Enrollment").style.color = "green";
+      break;
+    case "Claims":
+      document.getElementById("scope-dropdown-item-Claims").style.color = "green";
+      break;
+    default:
+      break;
+  }
+</script>
 
     <!-- Main Wrapper -->
     <div id="wrapper">

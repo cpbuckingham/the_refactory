@@ -33,7 +33,7 @@ small {font-size: 12.6px; }
 					<div class="projects">
 							<div class="col-lg-4">
 									<div class="hpanel hgreen contact-panel">
-										<div class="panel-body" onclick="changeMorInfo('loc');chBackcolor('red');">
+                    <div id="loc" class="panel-body" onclick="changeMorInfo('loc');chBackcolor('loc');">
 											<h5><under>LOC summary</under></h5></br>
 											<div class="text-muted font-bold m-b-xs">
 											<p><b>COBOL LOC:</b> 2,512,903</p>
@@ -48,7 +48,7 @@ small {font-size: 12.6px; }
 					<div class="projects">
 							<div class="col-lg-4">
 									<div class="hpanel hgreen contact-panel">
-										<div class="panel-body" onclick="changeMorInfo('interfaces');chBackcolor('green');">
+                    <div id="interface" class="panel-body" onclick="changeMorInfo('interfaces');chBackcolor('interface');">
 											<h5><under>Interfaces summary</under></h5></br>
 											<div class="text-muted font-bold m-b-xs">
 											<p><b>ABC: 903</b></p>
@@ -63,7 +63,7 @@ small {font-size: 12.6px; }
 					<div class="projects">
 							<div class="col-lg-4">
 									<div class="hpanel hgreen contact-panel" id="three">
-										<div class="panel-body" onclick="changeMorInfo('tpp');chBackcolor('blue');">
+                    <div id="tpp" class="panel-body" onclick="changeMorInfo('tpp');chBackcolor('tpp');">
 												<h5><under>TPP summary</under></h5></br>
 												<div class="text-muted font-bold m-b-xs">
 												<under>Top 3:</under></br>
@@ -267,9 +267,21 @@ info.innerHTML = "<h5>More Information: TPP</h5></br><b>TPP by Data Layer</b></b
           }
   }
 
-  function chBackcolor(color) {
-   document.body.style.background = color;
-}
+  function chBackcolor(id) {
+    if(id === 'loc'){
+     document.getElementById("loc").style.border="5px solid #b3b3b3";
+     document.getElementById("interface").style.border="";
+     document.getElementById("tpp").style.border="";
+   }else if(id === 'interface'){
+     document.getElementById("interface").style.border="5px solid #b3b3b3";
+     document.getElementById("loc").style.border="";
+     document.getElementById("tpp").style.border="";
+   }else if(id === 'tpp'){
+     document.getElementById("tpp").style.border="5px solid #b3b3b3";
+     document.getElementById("interface").style.border="";
+     document.getElementById("loc").style.border="";
+   }
+  }
 function showCharts(){
   var charts = document.getElementById("charts");
   var semoss = document.getElementById("semoss");

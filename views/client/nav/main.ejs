@@ -1,4 +1,10 @@
 <!-- Header -->
+<style type="text/css">
+button:focus
+{
+  outline:none;
+}
+</style>
 <div id="header">
   <div class="color-line">
   </div>
@@ -41,7 +47,7 @@
           <a class="dropdown-toggle" href="#" data-toggle="dropdown">
                         <i class="pe-7s-speaker"></i>
                     </a>
-          <ul class="dropdown-menu hdropdown notification animated fadeIn">
+          <ul class="dropdown-menu hdropdown notification animated flipInX">
             <li>
               You have 0 new notifications
             </li>
@@ -53,7 +59,7 @@
                         <i class="pe-7s-keypad"></i>
                     </a>
 
-          <div class="dropdown-menu hdropdown bigmenu animated fadeIn">
+          <div class="dropdown-menu hdropdown bigmenu animated flipInX">
             <table>
               <tbody>
                 <tr>
@@ -74,35 +80,19 @@
                   <td>
                     <a href="#">
                                         <i class="pe pe-7s-tools text-success"></i>
-                                        <h5>Review and Refine</h5>
+                                        <h5>Refine</h5>
                                     </a>
                   </td>
                   <td>
                     <a href="#">
                                         <i class="pe pe-7s-alarm text-danger"></i>
-                                        <h5>Plan for Change</h5>
+                                        <h5>Plan</h5>
                                     </a>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-        </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle label-menu-corner" href="#" data-toggle="dropdown">
-                        <i class="pe-7s-glasses"></i>
-
-                        <span class="label label-success"></span>
-                    </a>
-          <ul class="dropdown-menu hdropdown animated fadeIn">
-            <div class="title">
-              Current Scope: <%=client.scope%>
-            </div>
-            <% project.rules.scope.forEach(function (project_scope) { %>
-            <li><a href="#"><%=project_scope%></a></li>
-            <% }) %>
-            <li class="summary"><a href="#">Create New Scope</a></li>
-          </ul>
         </li>
         <li class="dropdown">
           <a class="logout">
@@ -129,7 +119,7 @@
           <a class="dropdown-toggle" href="#" data-toggle="dropdown">
                         <small class="text-muted"> Edit <b class="caret"></b></small>
                     </a>
-          <ul class="dropdown-menu animated fadeIn m-t-xs">
+          <ul class="dropdown-menu animated flipInX m-t-xs">
             <li><a href="/client/edit/<%=client.id%>">Edit Profile</a></li>
             <li><a href="/client/<%=client.project_id%>/project">Mange Project</a></li>
             <li class="divider"></li>
@@ -156,7 +146,7 @@
         <a href="/client/<%=client.project_id%>/project"> <span class="nav-label">Project</span> </a>
       </li>
       <li>
-        <a href="/metrics"> <span class="nav-label">Metrics</span> </a>
+        <a href="/client/<%=client.project_id%>/metrics"> <span class="nav-label">Metrics</span> </a>
       </li>
       <!-- <li>
                 <a href="/client"><span class="nav-label">Sample</span><span class="fa arrow"></span> </a>
@@ -172,3 +162,22 @@
     </ul>
   </div>
 </aside>
+
+<script>
+  switch ("<%=client.scope%>") {
+    case "All":
+      document.getElementById("scope-dropdown-item-All").style.color = "green";
+      break;
+    case "Billing":
+      document.getElementById("scope-dropdown-item-Billing").style.color = "green";
+      break;
+    case "Enrollment":
+      document.getElementById("scope-dropdown-item-Enrollment").style.color = "green";
+      break;
+    case "Claims":
+      document.getElementById("scope-dropdown-item-Claims").style.color = "green";
+      break;
+    default:
+      break;
+  }
+</script>

@@ -19,13 +19,14 @@ router.get("/", authorizedUser, function(req, res, next) {
   let clientID = req.session.user.id;
   knex("clients").where("id", clientID).first().then(function(client) {
     knex.from("projects").innerJoin("clients", "projects.id", "clients.project_id").where("clients.id", clientID).first().then(function(project) {
-    res.render("client/home", {
-      client: client,
-      project: project,
+      res.render("client/home", {
+        client: client,
+        project: project,
+      });
     });
   });
 });
-});
+
 
 router.get("/:id", authorizedUser, function(req, res, next) {
   let userID = req.session.user.id;
@@ -33,13 +34,13 @@ router.get("/:id", authorizedUser, function(req, res, next) {
   knex("clients").where("id", userID).first().then(function(client) {
     knex("clients").where("id", clientID).first().then(function(user) {
       knex.from("projects").innerJoin("clients", "projects.id", "clients.project_id").where("clients.id", clientID).first().then(function(project) {
-      res.render("client/single", {
-        user: user,
-        client: client,
-        project: project,
+        res.render("client/single", {
+          user: user,
+          client: client,
+          project: project,
+        });
       });
     });
-  });
   });
 });
 
@@ -47,13 +48,25 @@ router.get("/:id/project", authorizedUser, function(req, res, next) {
   let userID = req.session.user;
   let clientID = req.params.id;
   knex.from("projects").where("user_id", clientID).first().then(function(project) {
-  knex("clients").where("id", userID.id).first().then(function(client) {
-    knex("clients").where("project_id", userID.project_id).then(function(clients) {
+    knex("clients").where("id", userID.id).first().then(function(client) {
+      knex("clients").where("project_id", userID.project_id).then(function(clients) {
         res.render("client/project", {
           client: client,
           clients: clients,
           project: project,
         });
+      });
+    });
+  });
+});
+
+router.get("/:id/metrics", authorizedUser, function(req, res, next) {
+  let clientID = req.session.user.id;
+  knex("clients").where("id", clientID).first().then(function(client) {
+    knex.from("projects").innerJoin("clients", "projects.id", "clients.project_id").where("clients.id", clientID).first().then(function(project) {
+      res.render("client/metrics", {
+        client: client,
+        project: project,
       });
     });
   });
@@ -89,6 +102,15 @@ router.put("/:id", authorizedUser, function(req, res, next) {
 
   }).then(function() {
     res.redirect("/client");
+  });
+});
+
+router.put("/:id/scope", authorizedUser, function(req, res, next) {
+  let clientID = req.params.id;
+  knex("clients").where("id", clientID).update({
+    scope: req.body.scope,
+  }).then(function() {
+    res.redirect("/client/"+clientID+"/project");
   });
 });
 
