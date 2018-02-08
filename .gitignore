@@ -1,4 +1,6 @@
 node_modules
+public/data
+public/json
 .env
 .DS_Store
 .git

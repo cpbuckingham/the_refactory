@@ -1,4 +1,99 @@
-<% include partials/header %>
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Page title -->
+  <title>The ReFactory</title>
+  <link rel="shortcut icon" type="image/ico" href="../../../images/favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+
+  <!-- Vendor styles -->
+  <link rel="stylesheet" href="../../../stylesheets/vendor/fontawesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="../../../stylesheets/vendor/metisMenu/dist/metisMenu.css" />
+  <link rel="stylesheet" href="../../../stylesheets/vendor/animate.css/animate.css" />
+  <link rel="stylesheet" href="../../../stylesheets/vendor/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="../../../stylesheets/vendor/sweetalert/lib/sweet-alert.css" />
+  <link rel="stylesheet" href="../../../stylesheets/vendor/toastr/build/toastr.min.css" />
+
+  <!-- App styles -->
+  <link rel="stylesheet" href="../../../stylesheets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
+  <link rel="stylesheet" href="../../../stylesheets/fonts/pe-icon-7-stroke/css/helper.css" />
+  <link rel="stylesheet" href="../../../stylesheets/styles/style.css">
+
+</head>
+
+<body class="fixed-navbar sidebar-scroll">
+
+<style>
+.skin-option {
+  position: fixed;
+  text-align: center;
+  right: -1px;
+  padding: 10px;
+  top: 80px;
+  width: 150px;
+  height: 133px;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, .1);
+  border-radius: 4px 0 0 4px;
+  z-index: 100;
+}
+
+/* Modal Style*/
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.modal-header {
+  padding: 10px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+
+  <script>
+    setInterval(function() {
+      $('#demo-star').toggleClass('text-success');
+    }, 300)
+  </script>
 
 <!-- Header -->
 <style type="text/css">
@@ -106,7 +201,7 @@ button:focus
             </div>
             <% project.rules.scope.forEach(function (project_scope) { %>
             <li>
-              <form action="/client/<%=client.id%>/scope?_method=PUT" method="POST">
+              <form action="/client/<%=client.id%>/project/<%=client.project_id%>/scope?_method=PUT" method="POST">
                 <button style="width: 174px; height: 35px; padding: 0; border: none; background: none;" type="submit" name="scope" value="<%=project_scope%>" class="scope-dropdown-item" id="scope-dropdown-item-<%=project_scope%>"><%=project_scope%></button>
               </form>
             </li>
@@ -179,10 +274,10 @@ button:focus
         <a href="/client"> <span class="nav-label">Dashboard</span> </a>
       </li>
       <li>
-        <a href="/client/<%=client.project_id%>/project"> <span class="nav-label">Project</span> </a>
+        <a href="/client/<%=client.id%>/project/<%=client.project_id%>"> <span class="nav-label">Project</span> </a>
       </li>
       <li>
-        <a href="/client/<%=client.project_id%>/metrics"> <span class="nav-label">Metrics</span> </a>
+        <a href="/client/<%=client.id%>/metrics"> <span class="nav-label">Metrics</span> </a>
       </li>
       <!-- <li>
                 <a href="/client"><span class="nav-label">Sample</span><span class="fa arrow"></span> </a>
@@ -210,8 +305,8 @@ button:focus
     case "Enrollment":
       document.getElementById("scope-dropdown-item-Enrollment").style.color = "green";
       break;
-    case "Claims":
-      document.getElementById("scope-dropdown-item-Claims").style.color = "green";
+    case "Activation":
+      document.getElementById("scope-dropdown-item-Activation").style.color = "green";
       break;
     default:
       break;
@@ -268,7 +363,7 @@ button:focus
                       <div class="col-md-4">
                           <div class="hpanel">
                               <div class="panel-body file-body">
-                                <img src="../../images/11.png" width="250" height="250" alt="">
+                                <img src="../../../images/11.png" width="250" height="250" alt="">
                               </div>
                               <div class="panel-footer">
                                   <a href="#">Document_2016.doc</a>
@@ -276,7 +371,7 @@ button:focus
                           </div>
                           <div class="hpanel">
                               <div class="panel-body file-body">
-                                <img src="../../images/10.png" width="250" height="250" alt="">
+                                <img src="../../../images/10.png" width="250" height="250" alt="">
                               </div>
                               <div class="panel-footer">
                                   <a href="#">Document_2016.doc</a>
@@ -287,7 +382,7 @@ button:focus
                       <div class="col-md-4">
                           <div class="hpanel">
                               <div class="panel-body file-body">
-                                <img src="../../images/6.png" width="250" height="250" alt="">
+                                <img src="../../../images/6.png" width="250" height="250" alt="">
                               </div>
                               <div class="panel-footer">
                                   <a href="#">Sheets_2016.doc</a>
@@ -295,7 +390,7 @@ button:focus
                           </div>
                           <div class="hpanel">
                               <div class="panel-body file-body">
-                                <img src="../../images/12.png" width="250" height="250" alt="">
+                                <img src="../../../images/12.png" width="250" height="250" alt="">
                               </div>
                               <div class="panel-footer">
                                   <a href="#">Sheets_2016.doc</a>
@@ -306,7 +401,7 @@ button:focus
                       <div class="col-md-4">
                           <div class="hpanel">
                               <div class="panel-body file-body">
-                                <img src="../../images/3.png" width="250" height="250" alt="">
+                                <img src="../../../images/3.png" width="250" height="250" alt="">
                               </div>
                               <div class="panel-footer">
                                   <a href="#">Presentation_2016.doc</a>
@@ -314,7 +409,7 @@ button:focus
                           </div>
                           <div class="hpanel">
                               <div class="panel-body file-body">
-                                <img src="../../images/4.png" width="250" height="250" alt="">
+                                <img src="../../../images/4.png" width="250" height="250" alt="">
                               </div>
                               <div class="panel-footer">
                                   <a href="#">Presentation_2016.doc</a>
@@ -676,150 +771,207 @@ button:focus
       </footer>
     </div>
 
-    <% include partials/footer %>
+    <!-- Vendor scripts -->
+    <script src="../../../stylesheets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../../../stylesheets/vendor/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../../stylesheets/vendor/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="../../../stylesheets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../../stylesheets/vendor/jquery-flot/jquery.flot.js"></script>
+    <script src="../../../stylesheets/vendor/jquery-flot/jquery.flot.resize.js"></script>
+    <script src="../../../stylesheets/vendor/jquery-flot/jquery.flot.pie.js"></script>
+    <script src="../../../stylesheets/vendor/flot.curvedlines/curvedLines.js"></script>
+    <script src="../../../stylesheets/vendor/jquery.flot.spline/index.js"></script>
+    <script src="../../../stylesheets/vendor/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="../../../stylesheets/vendor/iCheck/icheck.min.js"></script>
+    <script src="../../../stylesheets/vendor/peity/jquery.peity.min.js"></script>
+    <script src="../../../stylesheets/vendor/sparkline/index.js"></script>
+    <script src="../../../stylesheets/vendor/sweetalert/lib/sweet-alert.min.js"></script>
+    <script src="../../../stylesheets/vendor/toastr/build/toastr.min.js"></script>
+    <script src="../../../stylesheets/vendor/jstree/dist/jstree.min.js"></script>
 
-      <script>
-        $('#demo4').click(function() {
-          swal({
-              title: "Are you sure?",
-              text: "Your will not be able to recover this project or it's clients!",
-              type: "warning",
-              showCancelButton: true,
-              confirmButtonColor: "#DD6B55",
-              confirmButtonText: "Yes, delete it!",
-              cancelButtonText: "No, cancel please!",
-              closeOnConfirm: false,
-              closeOnCancel: false
-            },
-            function(isConfirm) {
-              if (isConfirm) {
-                swal("Deleted!", "Your project & all affiliated clients has been deleted.", "success");
-                setTimeout(
-                  function() {
-                    $("#form").submit();
-                  }, 2000);
-              } else {
-                swal("Cancelled", "Your project is safe ... for now.)", "error");
-              }
-            });
-        });
-      </script>
+    <!-- App scripts -->
+    <script src="../../../javascripts/homer.js"></script>
+    <script src="../../../javascripts/charts.js"></script>
 
-      <script>
-          $(document).ready(function(){
-
-              $('#jstree1').jstree({
-                  'core' : {
-                      'check_callback' : true
-                  },
-                  'plugins' : [ 'types', 'dnd' ],
-                  'types' : {
-                      'default' : {
-                          'icon' : 'fa fa-folder'
-                      },
-                      'html' : {
-                          'icon' : 'fa fa-file-code-o'
-                      },
-                      'svg' : {
-                          'icon' : 'fa fa-file-picture-o'
-                      },
-                      'css' : {
-                          'icon' : 'fa fa-file-code-o'
-                      },
-                      'img' : {
-                          'icon' : 'fa fa-file-image-o'
-                      },
-                      'js' : {
-                          'icon' : 'fa fa-file-text-o'
-                      }
-
-                  }
+    <script>
+      $('.logout').click(function() {
+        swal({
+            title: "Logging you off",
+            text: "Are you sure?",
+            type: "error",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, log off!",
+            cancelButtonText: "No, lets stay!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+          },
+          function(isConfirm) {
+            if (isConfirm) {
+              swal("Bye Champ", "See you soon!", "success");
+              setTimeout(
+                function() {
+                  //window.location.href = "http://therefactory.herokuapp.com/auth/logout"
+                  window.location.href = "http://localhost:3000/auth/logout"
+                }, 1000);
+            } else {
+              swal({
+                title: "Glad to see you stay!",
+                text: "We were about to lose out shit",
+                imageUrl: "../../images/tacogif.gif"
               });
-
-              $('#using_json').jstree({
-                  'core' : {
-                  'data' : [
-                      'Empty Folder',
-                      {
-                          'text': 'Resources',
-                          'state': {
-                              'opened': true
-                          },
-                          'children': [
-                              {
-                                  'text': 'css',
-                                  'children': [
-                                      {
-                                          'text': 'animate.css', 'icon': 'none'
-                                      },
-                                      {
-                                          'text': 'bootstrap.css', 'icon': 'none'
-                                      },
-                                      {
-                                          'text': 'main.css', 'icon': 'none'
-                                      },
-                                      {
-                                          'text': 'style.css', 'icon': 'none'
-                                      }
-                                  ],
-                                  'state': {
-                                      'opened': true
-                                  }
-                              },
-                              {
-                                  'text': 'js',
-                                  'children': [
-                                      {
-                                          'text': 'bootstrap.js', 'icon': 'none'
-                                      },
-                                      {
-                                          'text': 'inspinia.min.js', 'icon': 'none'
-                                      },
-                                      {
-                                          'text': 'jquery.min.js', 'icon': 'none'
-                                      },
-                                      {
-                                          'text': 'jsTree.min.js', 'icon': 'none'
-                                      },
-                                      {
-                                          'text': 'custom.min.js', 'icon': 'none'
-                                      }
-                                  ],
-                                  'state': {
-                                      'opened': true
-                                  }
-                              },
-                              {
-                                  'text': 'html',
-                                  'children': [
-                                      {
-                                          'text': 'layout.html', 'icon': 'none'
-                                      },
-                                      {
-                                          'text': 'navigation.html', 'icon': 'none'
-                                      },
-                                      {
-                                          'text': 'navbar.html', 'icon': 'none'
-                                      },
-                                      {
-                                          'text': 'footer.html', 'icon': 'none'
-                                      },
-                                      {
-                                          'text': 'sidebar.html', 'icon': 'none'
-                                      }
-                                  ],
-                                  'state': {
-                                      'opened': true
-                                  }
-                              }
-                          ]
-                      },
-                      'Fonts',
-                      'Images',
-                      'Scripts',
-                      'Templates',
-                  ]
-              } });
-
+            }
           });
+      });
+
+
+
+
           </script>
+          <script>
+            $('#demo4').click(function() {
+              swal({
+                  title: "Are you sure?",
+                  text: "Your will not be able to recover this project or it's clients!",
+                  type: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#DD6B55",
+                  confirmButtonText: "Yes, delete it!",
+                  cancelButtonText: "No, cancel please!",
+                  closeOnConfirm: false,
+                  closeOnCancel: false
+                },
+                function(isConfirm) {
+                  if (isConfirm) {
+                    swal("Deleted!", "Your project & all affiliated clients has been deleted.", "success");
+                    setTimeout(
+                      function() {
+                        $("#form").submit();
+                      }, 2000);
+                  } else {
+                    swal("Cancelled", "Your project is safe ... for now.)", "error");
+                  }
+                });
+            });
+
+              $(document).ready(function(){
+
+                  $('#jstree1').jstree({
+                      'core' : {
+                          'check_callback' : true
+                      },
+                      'plugins' : [ 'types', 'dnd' ],
+                      'types' : {
+                          'default' : {
+                              'icon' : 'fa fa-folder'
+                          },
+                          'html' : {
+                              'icon' : 'fa fa-file-code-o'
+                          },
+                          'svg' : {
+                              'icon' : 'fa fa-file-picture-o'
+                          },
+                          'css' : {
+                              'icon' : 'fa fa-file-code-o'
+                          },
+                          'img' : {
+                              'icon' : 'fa fa-file-image-o'
+                          },
+                          'js' : {
+                              'icon' : 'fa fa-file-text-o'
+                          }
+
+                      }
+                  });
+
+                  $('#using_json').jstree({
+                      'core' : {
+                      'data' : [
+                          'Empty Folder',
+                          {
+                              'text': 'Resources',
+                              'state': {
+                                  'opened': true
+                              },
+                              'children': [
+                                  {
+                                      'text': 'css',
+                                      'children': [
+                                          {
+                                              'text': 'animate.css', 'icon': 'none'
+                                          },
+                                          {
+                                              'text': 'bootstrap.css', 'icon': 'none'
+                                          },
+                                          {
+                                              'text': 'main.css', 'icon': 'none'
+                                          },
+                                          {
+                                              'text': 'style.css', 'icon': 'none'
+                                          }
+                                      ],
+                                      'state': {
+                                          'opened': true
+                                      }
+                                  },
+                                  {
+                                      'text': 'js',
+                                      'children': [
+                                          {
+                                              'text': 'bootstrap.js', 'icon': 'none'
+                                          },
+                                          {
+                                              'text': 'inspinia.min.js', 'icon': 'none'
+                                          },
+                                          {
+                                              'text': 'jquery.min.js', 'icon': 'none'
+                                          },
+                                          {
+                                              'text': 'jsTree.min.js', 'icon': 'none'
+                                          },
+                                          {
+                                              'text': 'custom.min.js', 'icon': 'none'
+                                          }
+                                      ],
+                                      'state': {
+                                          'opened': true
+                                      }
+                                  },
+                                  {
+                                      'text': 'html',
+                                      'children': [
+                                          {
+                                              'text': 'layout.html', 'icon': 'none'
+                                          },
+                                          {
+                                              'text': 'navigation.html', 'icon': 'none'
+                                          },
+                                          {
+                                              'text': 'navbar.html', 'icon': 'none'
+                                          },
+                                          {
+                                              'text': 'footer.html', 'icon': 'none'
+                                          },
+                                          {
+                                              'text': 'sidebar.html', 'icon': 'none'
+                                          }
+                                      ],
+                                      'state': {
+                                          'opened': true
+                                      }
+                                  }
+                              ]
+                          },
+                          'Fonts',
+                          'Images',
+                          'Scripts',
+                          'Templates',
+                      ]
+                  } });
+
+              });
+              </script>
+
+    </body>
+
+    </html>

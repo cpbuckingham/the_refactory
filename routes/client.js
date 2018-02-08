@@ -27,6 +27,23 @@ router.get("/", authorizedUser, function(req, res, next) {
   });
 });
 
+router.get("/show_details", authorizedUser, function(req, res, next) {
+  let clientID = req.session.user.id;
+  knex("clients").where("id", clientID).first().then(function(client) {
+    res.render("client/cobol", {
+      client: client,
+    });
+  });
+});
+
+router.get("/load_table", authorizedUser, function(req, res, next) {
+  let clientID = req.session.user.id;
+  knex("clients").where("id", clientID).first().then(function(client) {
+    res.render("client/load_table", {
+      client: client,
+    });
+  });
+});
 
 router.get("/:id", authorizedUser, function(req, res, next) {
   let userID = req.session.user.id;
@@ -44,10 +61,12 @@ router.get("/:id", authorizedUser, function(req, res, next) {
   });
 });
 
-router.get("/:id/project", authorizedUser, function(req, res, next) {
+
+router.get("/:client_id/project/:project_id", authorizedUser, function(req, res, next) {
   let userID = req.session.user;
-  let clientID = req.params.id;
-  knex.from("projects").where("user_id", clientID).first().then(function(project) {
+  let projectID = req.params.project_id;
+  let clientID = req.params.client_id;
+  knex.from("projects").where("user_id", projectID).first().then(function(project) {
     knex("clients").where("id", userID.id).first().then(function(client) {
       knex("clients").where("project_id", userID.project_id).then(function(clients) {
         res.render("client/project", {
@@ -105,12 +124,13 @@ router.put("/:id", authorizedUser, function(req, res, next) {
   });
 });
 
-router.put("/:id/scope", authorizedUser, function(req, res, next) {
-  let clientID = req.params.id;
+router.put("/:client_id/project/:project_id/scope", authorizedUser, function(req, res, next) {
+  let clientID = req.params.client_id;
+  let projectID = req.params.project_id;
   knex("clients").where("id", clientID).update({
     scope: req.body.scope,
   }).then(function() {
-    res.redirect("/client/"+clientID+"/project");
+    res.redirect("/client/"+clientID+"/project/"+projectID);
   });
 });
 

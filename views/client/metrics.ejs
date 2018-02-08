@@ -80,102 +80,92 @@ small {font-size: 12.6px; }
   </div>
 
   <div class="row">
-    <div class="col-lg-12">
-      <div class="hpanel">
-        <div class="panel-heading">
-          <div class="panel-tools">
-            <a class="showhide"><i class="fa fa-chevron-up"></i></a>
-            <a class="closebox"><i class="fa fa-times"></i></a>
-          </div>
-          Recently active projects
-        </div>
-        <div class="panel-body list">
-          <div class="pull-right">
+          <div class="col-lg-12">
+            <div class="hpanel hgreen">
+              <div class="panel-heading">
+                <div class="panel-tools">
+                  <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                  <a class="closebox"></a>
+                </div>
+                <h4><b>Visualizations</b></h4>
+              </div>
+              <div class="panel-body list">
+                <div class="pull-right">
 
-          <button class="btn btn-xs btn-default" onclick="showCharts()"> Charts</button>
-          <button class="btn btn-xs btn-default" onclick="showSemoss()"> SEMOSS</button>
-        </div>
+                  <button class="btn btn-xs btn-default" onclick="showCharts()"> Charts</button>
+                  <button class="btn btn-xs btn-default" onclick="showSemoss()"> SEMOSS</button>
+                </div>
+                <br>
+                <div class="panel-title"></div>
+              </br>
+              <div id="charts" >
+                <!-- loc pie chart -->
+                <div class="col-md-4" align="center" onclick="openLOCChart()">
+                  <div id="loc-pie-chart" style="width: 200px; height: 200px"></div></br>
+                  <b>Lines Of Code Complexity</b><br><br>
+                </div>
+                <!-- The Modal -->
+                <div id="loc-modal" class="modal">
+                  <!-- Modal content -->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <span class="close"></span>
+                      <h4><b>Lines Of Code Complexity Graph</b></h4><br><br>
+                    </div>
+                    <div class="model-body">
+                      <div id="big-loc-chart" style="width: 550px; height: 400px; margin:0 auto"></div>
+                    </div>
+                  </div>
+                </div>
 
-                          <div class="panel-title">Data</div>
-                        </br>
-                          <div id="charts" >
-          <div class="table-responsive project-list">
-            <table class="table table-striped">
-              <thead>
-                <tr>
+                <!-- interface pie chart -->
+                <div class="col-md-4" align="center" onclick="openInterfaceChart()">
+                  <div id="interface-pie-chart" style="width: 200px; height: 200px"></div></br>
+                  <b>Type of Interfaces</b>
+                </div>
+                <!-- The Modal -->
+                <div id="interface-modal" class="modal">
+                  <!-- Modal content -->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <span class="close"></span>
+                      <h4><b>Type of Interfaces Graph</b></h4><br><br>
+                    </div>
+                    <div class="model-body">
+                      <div id="big-interface-chart" style="width: 550px; height: 400px; margin:0 auto"></div>
+                    </div>
+                  </div>
+                </div>
 
-                  <th colspan="2">Project</th>
-                  <th>Completed</th>
-                  <th>Task</th>
-                  <th>Date</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><input type="checkbox" class="i-checks" checked></td>
-                  <td>Contract with Zender Company
-                    <br/>
-                    <small><i class="fa fa-clock-o"></i> Created 14.08.2015</small>
-                  </td>
-                  <td>
-                    <span class="pie">1/5</span>
-                  </td>
-                  <td><strong>20%</strong></td>
-                  <td>Jul 14, 2013</td>
-                  <td><a href=""><i class="fa fa-check text-success"></i></a></td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" class="i-checks"></td>
-                  <td>There are many variations of passages
-                    <br/>
-                    <small><i class="fa fa-clock-o"></i> Created 21.07.2015</small>
-                  </td>
-                  <td>
-                    <span class="pie">1/4</span>
-                  </td>
-                  <td><strong>40%</strong></td>
-                  <td>Jul 16, 2013</td>
-                  <td><a href=""><i class="fa fa-check text-navy"></i></a></td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" class="i-checks" checked></td>
-                  <td>Contrary to popular belief
-                    <br/>
-                    <small><i class="fa fa-clock-o"></i> Created 12.06.2015</small>
-                  </td>
-                  <td>
-                    <span class="pie">0.52/1.561</span>
-                  </td>
-                  <td><strong>75%</strong></td>
-                  <td>Jul 18, 2013</td>
-                  <td><a href=""><i class="fa fa-check text-navy"></i></a></td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" class="i-checks"></td>
-                  <td>Gamma project
-                    <br/>
-                    <small><i class="fa fa-clock-o"></i> Created 06.03.2015</small>
-                  </td>
-                  <td>
-                    <span class="pie">226/360</span>
-                  </td>
-                  <td><strong>16%</strong></td>
-                  <td>Jul 22, 2013</td>
-                  <td><a href=""><i class="fa fa-check text-navy"></i></a></td>
-                </tr>
-              </tbody>
-            </table>
+                <!-- tpp summary pie chart -->
+                <div class="col-md-4" align="center" onclick="openTPPChart()">
+                  <div id="stacked-bar" style="width: 200px; height: 200px"></div></br>
+                  <b>Third Party Products</b>
+                </div>
+              </div>
+              <!-- The Modal -->
+              <div id="tpp-modal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <span class="close"></span>
+                    <h4><b>Third Party Products Graph</b></h4>
+                  </div>
+                  <div class="model-body">
+                    <div id="big-tpp-chart" style="width: 500px; height: 400px; margin:0 auto"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- semoss stuff -->
+              <div id="semoss" style="display: none;">
+                <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;"src="http://localhost:8080/SemossWeb/#!/insight?type=single&engine=call_chain_demo&id=dca0ab7d-20a3-4878-b6b8-eb147fc0b348&panel=0"></iframe>
+              </div>
+            </div>
+
           </div>
         </div>
-          <div id="semoss" style="display: none;">
-    <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;"src="http://localhost:8080/SemossWeb/#!/insight?type=single&engine=call_chain_demo&id=dca0ab7d-20a3-4878-b6b8-eb147fc0b348&panel=0"></iframe>
-  </div>
-        </div>
-
       </div>
-    </div>
-</div>
 </div>
 
 <div class="projects">
@@ -226,7 +216,7 @@ info.innerHTML = "<h5>More Information: LOC</h5></br><p><span><header>Nodes by C
       							+"&nbsp;<b>HIQ:</b> 237,017</br>"
       							+"&nbsp;<b>MPR:</b> 259,894</br>"
       							+"&nbsp;<b>NDQ:</b> 57,618</br>"
-                    +"</br><div align='right'><b><under>See More >></under></b></div>";
+                    +"</br><div align='right'><a href=\"/client/show_details\"<b><under>See More >></under></b></div>";
 }
 if (val == "interfaces") {
 info.innerHTML = "<h5>More Information: Interfaces</h5></br><p><span><header>Interface Observations:</header>"
@@ -245,7 +235,7 @@ info.innerHTML = "<h5>More Information: Interfaces</h5></br><p><span><header>Int
       				"<p><span><header>Outbound Interfaces:</header>"
       							+"1. AEPS</br>"
       							+"2. Claims</br>"
-                    +"</br><div align='right'><b><under>See More >></under></b></div>";
+                    +"</br><div align='right'><a href=\"/client/show_details\"<b><under>See More >></under></b></div>";
 }
 if (val == "tpp") {
 info.innerHTML = "<h5>More Information: TPP</h5></br><b>TPP by Data Layer</b></br></br><p><span><header>Service Layer:</header>"
@@ -263,7 +253,7 @@ info.innerHTML = "<h5>More Information: TPP</h5></br><b>TPP by Data Layer</b></b
                   +"3. <b>NTIS-MS CRG (D99):</b> 3</br>"
                   +"4. <b>DB2 Data Access</b> </br>"
                   +"&nbsp;&nbsp;&nbsp;&nbsp;<b>(DSN, NDB):</b> 2</br>"
-                  +"</br><div align='right'><b><under>See More >></under></b></div>";
+                  +"</br><div align='right'><a href=\"/client/show_details\"<b><under>See More >></under></b></div>";
           }
   }
 
@@ -299,5 +289,472 @@ function showSemoss(){
       charts.style.display = "none";
   }
 }
+
+// Get the modal
+var modal1 = document.getElementById('loc-modal');
+var modal2 = document.getElementById('interface-modal');
+var modal3 = document.getElementById('tpp-modal');
+
+// Get the button that opens the modal
+//var btn = document.getElementById("loc-pie-chart");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+function openLOCChart() {
+    modal1.style.display = "block";
+}
+
+function openInterfaceChart() {
+    modal2.style.display = "block";
+}
+
+function openTPPChart() {
+    modal3.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal1.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal1) {
+        modal1.style.display = "none";
+    } else if (event.target == modal2) {
+        modal2.style.display = "none";
+    } else if (event.target == modal3) {
+        modal3.style.display = "none";
+    }
+}
 </script>
 <% include partials/footer %>
+<script>
+$(function() {
+
+  // Flot chart data and options
+
+  // LOC Pie chart
+  var dataSet = [
+  {label: "Easy", data: 6.76, color: "#62cb31" },
+  { label: "Complex", data: 2.09, color: "#0097A9" },
+  { label: "Very Complex", data: 7.48, color: "#62B5E5" },
+  { label: "Unmaintainable", data: 83.67, color: "#9d9d99" },
+  ];
+
+  var options = {
+    series: {
+        pie: {
+            show: true,
+            label: {
+                show: false,
+                radius: 5,
+                formatter: function (label, series) {
+                    return '<div style="border:1px solid white;font-size:6pt;padding:5px;color:black;">' +
+                    label + ' : ' +
+                    series.data[0][1] +
+                    '%</div>';
+                },
+                background: {
+                    opacity: 0.8,
+                    color: '#000'
+                }
+            }
+        }
+    },
+    legend: {
+        show: false
+    },
+    grid: {
+        hoverable: false
+    }
+  };
+  $.plot($("#loc-pie-chart"), dataSet,options);
+  //////////////////////////
+
+
+  var options1 = {
+    series: {
+        pie: {
+            show: true,
+            label: {
+                show: true,
+                radius: 180,
+                formatter: function (label, series) {
+                    return '<div style="font-size:7pt;padding:5px;color:black;">' +
+                    label + ' : ' +
+                    series.data[0][1] +
+                    '%</div>';
+                },
+                background: {
+                    opacity: 0,
+                    color: '#ffffff'
+                }
+            }
+        }
+    },
+    legend: {
+        show: true
+    },
+    grid: {
+        hoverable: false
+    }
+  };
+  $.plot($("#big-loc-chart"), dataSet,options1);
+
+  // Interface Pie Chart
+  var dataSet = [
+  {label: "Inbound", data: 17, color: "#62B5E5" },
+  { label: "Outbound", data: 6, color: "#6a6a65" },
+  ];
+
+  var options = {
+    series: {
+        pie: {
+            show: true,
+            label: {
+                show: false,
+                radius: 5,
+                formatter: function (label, series) {
+                    return '<div style="border:1px solid grey;font-size:6pt;padding:5px;color:white;">' +
+                    label + ' : ' +
+                    series.data[0][1] +
+                    '</div>';
+                },
+                background: {
+                    opacity: 0,
+                    color: '#000'
+                }
+            }
+        }
+    },
+    legend: {
+        show: false
+    },
+    grid: {
+        hoverable: false
+    }
+  };
+  $.plot($("#interface-pie-chart"), dataSet,options);
+  ///////////////////////////
+
+  var options1 = {
+    series: {
+        pie: {
+            show: true,
+            label: {
+                show: true,
+                radius: 180,
+                formatter: function (label, series) {
+                    return '<div style="font-size:7pt;padding:5px;color:black;">' +
+                    label + ' : ' +
+                    series.data[0][1] +
+                    '</div>';
+                },
+                background: {
+                    opacity: 0,
+                    color: '#000'
+                }
+            }
+        }
+    },
+    legend: {
+        show: true
+    },
+    grid: {
+        hoverable: false
+    }
+  };
+  $.plot($("#big-interface-chart"), dataSet,options1);
+
+  // TPP Stacked bar graph
+  var wcs = [
+        [0, 1],
+    ];
+
+    var medacc = [
+        [0, 1],
+    ];
+
+    var wgm = [
+        [0, 4],
+    ];
+    var ibmutil = [
+        [0, 2],
+    ];
+    var syserr= [
+        [0, 5],
+    ];
+    var wsl = [
+        [0, 93],
+    ];
+    var abe = [
+        [0, 97],
+    ];
+    var dsn = [
+        [2, 2],
+    ];
+    var d99 = [
+        [2, 3],
+    ];
+    var tbc = [
+        [2, 9],
+    ];
+    var cbl = [
+        [2, 240],
+    ];
+    var xsm = [
+        [4, 2],
+    ];
+    var pnc = [
+        [4, 3],
+    ];
+
+    var dataset = [{
+        label: "WCS",
+        data: wcs,
+        color: "#62cb31"
+    }, {
+        label: "HAZ",
+        data: medacc,
+        color: "#62cb31"
+    }, {
+        label: "WGM",
+        data: wgm,
+        color: "#62cb31"
+    }, {
+        label: "CEE",
+        data: ibmutil,
+        color: "#62cb31"
+    }, {
+        label: "SYS",
+        data: syserr,
+        color: "#0097A9"
+    },/* {
+        label: "WSL",
+        data: wsl,
+        color: "#9d9d99"
+    }, {
+        label: "ABE",
+        data: abe,
+        color: "#9d9d99"
+    },*/ {
+        label: "DSN",
+        data: dsn,
+        color: "#62cb31"
+    }, {
+        label: "D99",
+        data: d99,
+        color: "#62cb31"
+    }, {
+        label: "TBC",
+        data: tbc,
+        color: "#0097A9"
+    }, //{
+        //label: "CBL",
+        //data: cbl,
+        //color: "#9d9d99"
+    //},
+    {
+        label: "XSM",
+        data: xsm,
+        color: "#62cb31"
+    }, {
+        label: "PNC",
+        data: pnc,
+        color: "#62cb31"
+    }];
+
+var ticks = [
+        [0, "Service "],
+        [2, "Data"],
+        [4, "Integration"]
+    ];
+
+
+    var options = {
+        series: {
+            stack: true,
+            bars: {
+                show: true,
+            }
+        },
+        legend: {
+          show: false
+        },
+        xaxis: {
+            ticks:[],
+            color: "white",
+            axisLabel: "Layers",
+            axisLabelUseCanvas: true,
+            axisLabelFontSizePixels: 8,
+            axisLabelFontFamily: 'Verdana, Arial',
+            axisLabelPadding: 2
+        },
+        yaxis: {
+            ticks:[],
+            color: "white",
+            axisLabel: "No of occurrences",
+            axisLabelUseCanvas: true,
+            axisLabelFontSizePixels: 8,
+            axisLabelFontFamily: 'Verdana, Arial',
+            axisLabelPadding: 3,
+
+        },
+        grid: {
+            hoverable: false,
+            borderWidth: 0.1,
+            backgroundColor: {
+                colors: ["#ffffff", "#ffffff"]
+            }
+        }
+    };
+
+    $(document).ready(function() {
+        $.plot($("#stacked-bar"), dataset, options);
+    });
+    /////////////////////////
+    var wcs = [
+          [0, 1],
+      ];
+
+      var medacc = [
+          [0, 1],
+      ];
+
+      var wgm = [
+          [0, 4],
+      ];
+      var ibmutil = [
+          [0, 2],
+      ];
+      var syserr= [
+          [0, 5],
+      ];
+      var wsl = [
+          [0, 63],
+      ];
+      var abe = [
+          [0, 67],
+      ];
+      var dsn = [
+          [2, 2],
+      ];
+      var d99 = [
+          [2, 3],
+      ];
+      var tbc = [
+          [2, 9],
+      ];
+      var cbl = [
+          [2, 130],
+      ];
+      var xsm = [
+          [4, 2],
+      ];
+      var pnc = [
+          [4, 3],
+      ];
+
+      var dataset1 = [{
+          label: "WCS",
+          data: wcs,
+          color: "#62cb31"
+      }, {
+          label: "HAZ",
+          data: medacc,
+          color: "#62cb31"
+      }, {
+          label: "WGM",
+          data: wgm,
+          color: "#62cb31"
+      }, {
+          label: "CEE",
+          data: ibmutil,
+          color: "#62cb31"
+      }, {
+          label: "SYS",
+          data: syserr,
+          color: "#0097A9"
+      }, {
+          label: "WSL",
+          data: wsl,
+          color: "#9d9d99"
+      }, {
+          label: "ABE",
+          data: abe,
+          color: "#9d9d99"
+      }, {
+          label: "DSN",
+          data: dsn,
+          color: "#62cb31"
+      }, {
+          label: "D99",
+          data: d99,
+          color: "#62cb31"
+      }, {
+          label: "TBC",
+          data: tbc,
+          color: "#0097A9"
+      }, {
+          label: "CBL",
+          data: cbl,
+          color: "#9d9d99"
+      },
+      {
+          label: "XSM",
+          data: xsm,
+          color: "#62cb31"
+      }, {
+          label: "PNC",
+          data: pnc,
+          color: "#62cb31"
+      }];
+
+      var options1 = {
+          series: {
+              stack: true,
+              bars: {
+                  show: true,
+              }
+          },
+          legend: {
+            show: true,
+            noColumns: 3
+          },
+          xaxis: {
+              ticks:ticks,
+              color: "white",
+              axisLabel: "Layers",
+              axisLabelUseCanvas: true,
+              axisLabelFontSizePixels: 8,
+              axisLabelFontFamily: 'Verdana, Arial',
+              axisLabelPadding: 2
+          },
+          yaxis: {
+              color: "white",
+              position: "right",
+              axisLabel: "No of occurrences",
+              axisLabelUseCanvas: true,
+              axisLabelFontSizePixels: 5,
+              axisLabelFontFamily: 'Verdana, Arial',
+              axisLabelPadding: 3,
+
+          },
+          grid: {
+              hoverable: true,
+              borderWidth: 0.5,
+              backgroundColor: {
+                  colors: ["#ffffff", "#ffffff"]
+              }
+          }
+      };
+
+      $(document).ready(function() {
+          $.plot($("#big-tpp-chart"), dataset1, options1);
+      });
+});
+
+</script>

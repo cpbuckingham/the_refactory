@@ -22,7 +22,3 @@
   heroku run knex migrate:latest
   heroku run knex seed:run
   heroku pg:psql --app therefactory
-
-
-
-push to svn

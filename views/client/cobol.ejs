@@ -1,0 +1,48 @@
+<% include partials/header %>
+
+  <% include nav/main %>
+
+    <!-- Main Wrapper -->
+
+
+    <div id="wrapper">
+
+      <div class="content animate-panel">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="hpanel">
+              <div class="panel-body">
+                <div class="projects">
+
+                  <div class="col-lg-12">
+                    <div class="btn-group">
+                      <button class="btn btn-xs btn-default" href="/codemetrics/details"> COBOL</button>
+                      <button class="btn btn-xs btn-default" href="#"> JCL</button>
+                      <button class="btn btn-xs btn-default" href="#"> Assembler</button>
+                      <button class="btn btn-xs btn-default" href="#"> Other</button>
+                    </div>
+                    <div id="table">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <span class="pull-right">
+            The_ReFactory
+        </span> Company @2017
+      </footer>
+
+
+    </div>
+    <% include partials/footer %>
+
+          <script>
+            $(function() {
+              $("#table").load("load_table");
+            });
+          </script>

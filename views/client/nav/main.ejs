@@ -143,7 +143,7 @@ button:focus
         <a href="/client"> <span class="nav-label">Dashboard</span> </a>
       </li>
       <li>
-        <a href="/client/<%=client.project_id%>/project"> <span class="nav-label">Project</span> </a>
+        <a href="/client/<%=client.id%>/project/<%=client.project_id%>"> <span class="nav-label">Project</span> </a>
       </li>
       <li>
         <a href="/client/<%=client.project_id%>/metrics"> <span class="nav-label">Metrics</span> </a>
@@ -164,20 +164,4 @@ button:focus
 </aside>
 
 <script>
-  switch ("<%=client.scope%>") {
-    case "All":
-      document.getElementById("scope-dropdown-item-All").style.color = "green";
-      break;
-    case "Billing":
-      document.getElementById("scope-dropdown-item-Billing").style.color = "green";
-      break;
-    case "Enrollment":
-      document.getElementById("scope-dropdown-item-Enrollment").style.color = "green";
-      break;
-    case "Claims":
-      document.getElementById("scope-dropdown-item-Claims").style.color = "green";
-      break;
-    default:
-      break;
-  }
 </script>
