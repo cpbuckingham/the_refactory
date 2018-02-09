@@ -41,7 +41,7 @@ app.use("/admin", admin);
 app.use("/search", search);
 
 app.listen(port, function() {
-  console.log("Welcome to the_refactory at port", port);
+  console.log("Welcome to Deloitte-Innowake Code Mining at port", port);
 });
 
 module.exports = app;

@@ -6,7 +6,7 @@ module.exports = {
   development: {
     client: "pg",
     connection: {
-      database: "the_refactory-dev",
+      database: "code_mining-dev",
       host: "localhost"
     }
   },
@@ -14,7 +14,7 @@ module.exports = {
   test: {
     client: "pg",
     connection: {
-      database: "the_refactory-test",
+      database: "code_mining-test",
       host: "localhost",
     }
   },

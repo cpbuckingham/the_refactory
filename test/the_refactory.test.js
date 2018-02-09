@@ -37,7 +37,7 @@ describe("Landing Page", function() {
         if (err) {
           done(err);
         }
-        expect(res.text).to.contain("Welcome The_ReFactory");
+        expect(res.text).to.contain("Welcome Deloitte-Innowake Code Mining");
         done();
       });
   });

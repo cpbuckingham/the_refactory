@@ -1,9 +1,9 @@
 {
-  "name": "the_refactory",
+  "name": "deloitte_innowake_code_mining",
   "version": "1.0.0",
   "description": "making system integration data simpler",
   "main": "server.js",
-  "repository": "https://github.com/cpbuckingham/the_refactory",
+  "repository": "",
   "directories": {
     "test": "test"
   },
