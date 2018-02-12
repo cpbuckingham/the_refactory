@@ -1,6 +1,5 @@
 <% include partials/header %>
 <% include nav/main %>
-<link rel="shortcut icon" type="image/ico" href="../../images/app_mod.png" />
 
 <style>
 header   {font-size: 14px;  font-weight: bold; text-decoration: underline;}
@@ -69,21 +68,6 @@ small {font-size: 12.6px; }
 
 
 <div id="wrapper">
-  <div class="normalheader ">
-    <div class="hpanel">
-      <div class="panel-body">
-        <a class="small-header-action" href="">
-          <div class="clip-header">
-            <i class="fa fa-arrow-up"></i>
-          </div>
-        </a>
-        <h2 class="font-light m-b-xs">
-            Metrics
-        </h2>
-      </div>
-    </div>
-  </div>
-
 <div class="content animate-panel">
 <div class="row">
 <div class="col-md-9">
@@ -94,7 +78,7 @@ small {font-size: 12.6px; }
 							<div class="col-lg-4">
 									<div class="hpanel hgreen contact-panel">
                     <div id="loc" class="panel-body" onclick="changeMorInfo('loc');chBackcolor('loc');">
-											<h5><under>LOC summary</under></h5></br>
+											<h5><under>Lines of Code Summary</under></h5></br>
 											<div class="text-muted font-bold m-b-xs">
 											<p><b>COBOL LOC:</b> 2,512,903</p>
 											<p><b>JCL LOC:</b> 308,453</p>
@@ -109,7 +93,7 @@ small {font-size: 12.6px; }
 							<div class="col-lg-4">
 									<div class="hpanel hgreen contact-panel">
                     <div id="interface" class="panel-body" onclick="changeMorInfo('interfaces');chBackcolor('interface');">
-											<h5><under>Interfaces summary</under></h5></br>
+											<h5><under>Interfaces Summary</under></h5></br>
 											<div class="text-muted font-bold m-b-xs">
 											<p><b>ABC: 903</b></p>
 											<p><b>DEF: 453</b></p>
@@ -124,7 +108,7 @@ small {font-size: 12.6px; }
 							<div class="col-lg-4">
 									<div class="hpanel hgreen contact-panel" id="three">
                     <div id="tpp" class="panel-body" onclick="changeMorInfo('tpp');chBackcolor('tpp');">
-												<h5><under>TPP summary</under></h5></br>
+												<h5><under>Third Party Producs Summary</under></h5></br>
 												<div class="text-muted font-bold m-b-xs">
 												<under>Top 3:</under></br>
 												1. IBM IMS</br>
@@ -219,7 +203,7 @@ small {font-size: 12.6px; }
 
               <!-- semoss stuff -->
               <div id="semoss" style="display: none;">
-                <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;"src="<%=process.env.SEMOSS_LINK_BOX%>"></iframe>
+                <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;"src="<%=process.env.SEMOSS_LINK_BOX_CALL_CHAIN%>"></iframe>
               </div>
             </div>
 

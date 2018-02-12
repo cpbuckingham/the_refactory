@@ -4,13 +4,13 @@
   </div>
   <div id="logo" class="light-version">
     <span>
-            Deloitte-Innowake Code Mining
+      <a href="/users/<%=user.id%>"><img src="../../images/app_mod.png" style="width:30px;height:30px;"></img>&nbsp;&nbsp;Code Mining</a>
         </span>
   </div>
   <nav role="navigation">
     <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
     <div class="small-logo">
-      <span class="text-primary"> Deloitte-Innowake Code Mining</span>
+      <a href="/users/<%=user.id%>"><img src="../../images/app_mod.png" style="width:30px;height:30px;"></img>&nbsp;&nbsp;Code Mining</a>
     </div>
     <form role="search" class="navbar-form-custom" method="post" action="#">
       <div class="form-group">
@@ -41,7 +41,7 @@
           <a class="dropdown-toggle" href="#" data-toggle="dropdown">
                         <i class="pe-7s-speaker"></i>
                     </a>
-          <ul class="dropdown-menu hdropdown notification animated fadeIn">
+          <ul class="dropdown-menu hdropdown notification animated ">
             <li>
               You have 0 new notifications
             </li>
@@ -49,45 +49,85 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                        <i class="pe-7s-keypad"></i>
-                    </a>
+                  <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                <i class="pe-7s-keypad"></i>
+                            </a>
 
-          <div class="dropdown-menu hdropdown bigmenu animated fadeIn">
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <a href="#">
-                                        <i class="pe pe-7s-world text-info"></i>
-                                        <h5>Discover</h5>
-                                    </a>
-                  </td>
-                  <td>
-                    <a href="#">
-                                        <i class="pe pe-7s-paperclip text-warning"></i>
-                                        <h5>Annotate</h5>
-                                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="#">
-                                        <i class="pe pe-7s-tools text-success"></i>
-                                        <h5>Reivew and Refine</h5>
-                                    </a>
-                  </td>
-                  <td>
-                    <a href="#">
-                                        <i class="pe pe-7s-alarm text-danger"></i>
-                                        <h5>Plan for Change</h5>
-                                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </li>
+                  <div class="dropdown-menu hdropdown bigmenu">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <h2><b>DISCOVER</b></h2>
+                        <h3>Explore</h3>
+                        <ul class="list-group">
+                          <li class="list-group-item"><a href="#">Code Metrics</a></li>
+                          <li class="list-group-item"><a href="#">Technical Debt</a></li>
+                          <li class="list-group-item"><a href="#">Call Chain</a></li>
+                          <li class="list-group-item"><a href="#">Data Dependency</a></li>
+                          <li class="list-group-item"><a href="#">Data Flow</a></li>
+                        </ul>
+                        <h3>Search</h3>
+                        <ul class="list-group">
+                          <li class="list-group-item"><a href="#">Simple Search</a></li>
+                          <li class="list-group-item"><a href="#">Advanced Search</a></li>
+                        </ul>
+                        <h3>Machine Learning</h3>
+                        <ul class="list-group">
+                          <li class="list-group-item"><a href="#">Pattern Match</a></li>
+                          <li class="list-group-item"><a href="#">Pattern Recognition</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-md-4">
+                        <h2><b>ANNOTATE</b></h2>
+                        <h3>Data Naming Conventions</h3>
+                        <ul class="list-group">
+                          <li class="list-group-item"><a href="#">Prefix</a></li>
+                          <li class="list-group-item"><a href="#">Regular Expression</a></li>
+                          <li class="list-group-item"><a href="#">Manual Grouping</a></li>
+                        </ul>
+                        <h3>Data Annotation</h3>
+                        <ul class="list-group">
+                          <li class="list-group-item"><a href="#">Database Table</a></li>
+                          <li class="list-group-item"><a href="#">Database Column</a></li>
+                          <li class="list-group-item"><a href="#">VSAM Fields</a></li>
+                          <li class="list-group-item"><a href="#">IMS DBDM</a></li>
+                          <li class="list-group-item"><a href="#">IMS Segment</a></li>
+                          <li class="list-group-item"><a href="#">IMS Field</a></li>
+                        </ul>
+                        <h3>Code Annotation</h3>
+                        <ul class="list-group">
+                          <li class="list-group-item"><a href="#">Copybook</a></li>
+                          <li class="list-group-item"><a href="#">Variable</a></li>
+                          <li class="list-group-item"><a href="#">Condition</a></li>
+                          <li class="list-group-item"><a href="#">Code Block</a></li>
+                          <li class="list-group-item"><a href="#">Sub-system</a></li>
+                          <li class="list-group-item"><a href="#">Application</a></li>
+                          <li class="list-group-item"><a href="#">Modules</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-md-4">
+                        <h2><b>REVIEW AND REFINE</b></h2>
+                        <h3>Review and Refine</h3>
+                        <ul class="list-group">
+                          <li class="list-group-item"><a href="#">Assign Confidence</a></li>
+                          <li class="list-group-item"><a href="#">Discover Discrepency and Gaps</a></li>
+                          <li class="list-group-item"><a href="#">Call Chain</a></li>
+                          <li class="list-group-item"><a href="#">Data Dependency</a></li>
+                          <li class="list-group-item"><a href="#">Data Flow</a></li>
+                        </ul>
+                        <h2><b>PLAN FOR CHANGE</b></h2>
+                        <h3>Impact Analysis</h3>
+                        <ul class="list-group">
+                          <li class="list-group-item"><a href="#">System</a></li>
+                          <li class="list-group-item"><a href="#">Application</a></li>
+                          <li class="list-group-item"><a href="#">Module</a></li>
+                          <li class="list-group-item"><a href="#">Condition</a></li>
+                          <li class="list-group-item"><a href="#">Variable</a></li>
+                          <li class="list-group-item"><a href="#">Data Field</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
 
         <li class="dropdown">
           <a class="logout">
@@ -114,7 +154,7 @@
           <a class="dropdown-toggle" href="#" data-toggle="dropdown">
                         <small class="text-muted"> Admin: <%=user.admin%> <b class="caret"></b></small>
                     </a>
-          <ul class="dropdown-menu animated fadeIn m-t-xs">
+          <ul class="dropdown-menu animated m-t-xs">
             <li><a href="/users/<%=user.id%>/edit">Edit Profile</a></li>
             <li><a href="/projects/new">Add Projects</a></li>
             <li><a href="/clients/new">Add Clients</a></li>

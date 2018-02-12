@@ -1,6 +1,7 @@
 node_modules
-public/data
-public/json
+public
+views
+server.js
 .env
 .DS_Store
 .git

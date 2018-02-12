@@ -66,13 +66,13 @@ button:focus
   </div>
   <div id="logo" class="light-version">
     <span>
-      <a href="/client"><img src="../../../images/app_mod.png" style="width:30px;height:30px;"></img>&nbsp;&nbsp;Code Mining</a>
+      <a href="/client"><img src="../../../../../../images/app_mod.png" style="width:30px;height:30px;"></img>&nbsp;&nbsp;Code Mining</a>
         </span>
   </div>
   <nav role="navigation">
     <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
     <div class="small-logo">
-      <span class="text-primary"> Deloitte-Innowake Code Mining</span>
+      <a href="/client"><img src="../../../../../../images/app_mod.png" style="width:30px;height:30px;"></img>&nbsp;&nbsp;Code Mining</a>
     </div>
     <form role="search" class="navbar-form-custom" method="post" action="#">
       <div class="form-group">
@@ -103,7 +103,7 @@ button:focus
           <a class="dropdown-toggle" href="#" data-toggle="dropdown">
                         <i class="pe-7s-speaker"></i>
                     </a>
-          <ul class="dropdown-menu hdropdown notification animated fadeIn">
+          <ul class="dropdown-menu hdropdown notification animated">
             <li>
               You have 0 new notifications
             </li>
@@ -121,7 +121,7 @@ button:focus
                         <h2><b>DISCOVER</b></h2>
                         <h3>Explore</h3>
                         <ul class="list-group">
-                          <li class="list-group-item"><a href="/client/<%=client.id%>/project/metrics">Code Metrics</a></li>
+                          <li class="list-group-item"><a href="#">Code Metrics</a></li>
                           <li class="list-group-item"><a href="#">Technical Debt</a></li>
                           <li class="list-group-item"><a href="#">Call Chain</a></li>
                           <li class="list-group-item"><a href="#">Data Dependency</a></li>
@@ -221,7 +221,6 @@ button:focus
               </form>
             </li> -->
 
-            <li class="summary"><a href="#">Create New Scope</a></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -238,7 +237,7 @@ button:focus
 <aside id="menu">
   <div id="navigation">
     <div class="profile-picture">
-      <a href="/client/<%=client.id%>/edit">
+      <a href="/client/<%=client.id%>">
                 <img src="<%=client.avatar%>" height="70" width="70" class="img-circle m-b" alt="logo">
             </a>
 
@@ -249,7 +248,7 @@ button:focus
           <a class="dropdown-toggle" href="#" data-toggle="dropdown">
                         <small class="text-muted"> Edit <b class="caret"></b></small>
                     </a>
-          <ul class="dropdown-menu animated fadeIn m-t-xs">
+          <ul class="dropdown-menu animated m-t-xs">
             <li><a href="/client/edit/<%=client.id%>">Edit Profile</a></li>
             <li><a href="/client/<%=client.id%>/project/<%=client.project_id%>">Manage Project</a></li>
             <li class="divider"></li>
@@ -291,10 +290,11 @@ button:focus
       <li>
     </ul>
     <br><br><br>
+    <hr>
     <!-- file tree -->
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h4 style="text-align:center;color:#62CB31;">Code - <%=client.scope%></h4>
+                <h4 style="text-align:center;color:#62CB31;"><%=client.scope%></h4>
             </div>
             <div class="ibox-content">
                 <div id="using_json"></div>
@@ -324,155 +324,12 @@ button:focus
 
     <!-- Main Wrapper -->
     <div id="wrapper">
-
-      <div class="normalheader transition">
-        <div class="hpanel">
-          <div class="panel-body">
-            <a class="small-header-action" href="">
-              <div class="clip-header">
-                <i class="fa fa-arrow-up"></i>
-              </div>
-            </a>
-
-            <div id="hbreadcrumb" class="pull-right m-t-lg">
-              <ol class="hbreadcrumb breadcrumb">
-              </ol>
-            </div>
-            <h2 class="font-light m-b-xs">
-                  Project Profile
-                </h2>
-          </div>
-        </div>
-      </div>
       <div class="content animate-panel">
-
         <div class="row">
-              <div class="col-md-12">
-                <div class="row" align="center">
-                  <div class="col-md-4">
-                    <a>
-                      <div class="hpanel">
-                        <div class="panel-body file-body" data-toggle="modal" data-target=".bd-example-modal-lg-bubble">
-                          <img src="../../../images/SEMOSS_Bubble.png" width="250" height="250" alt="">
-                        </div>
-                        <div class="modal fade bd-example-modal-lg-bubble" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                              <iframe frameborder="0" width="100%" height="620" style="border: 1px solid #ccc;" src="<%=process.env.SEMOSS_LINK_DEV_BUBBLE%>"></iframe>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="panel-footer">
-                          <u>Bubble Chart</u>
-                        </div>
-                      </div>
-                    </a>
-                    <a>
-                      <div class="hpanel">
-                        <div class="panel-body file-body" data-toggle="modal" data-target=".bd-example-modal-lg-cloud">
-                          <img src="../../../images/SEMOSS_Cloud.png" width="250" height="250" alt="">
-                        </div>
-                        <div class="modal fade bd-example-modal-lg-cloud" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                              <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;" src="<%=process.env.SEMOSS_LINK_DEV_CLOUD%>"></iframe>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="panel-footer">
-                          <u>Cloud Chart</u>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="col-md-4">
-                    <a>
-                      <div class="hpanel">
-                        <div class="panel-body file-body" data-toggle="modal" data-target=".bd-example-modal-lg-graph">
-                          <img src="../../../images/SEMOSS_Graph.png" width="250" height="250" alt="">
-                        </div>
-                        <div class="modal fade bd-example-modal-lg-graph" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                              <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;" src="<%=process.env.SEMOSS_LINK_DEV_GRAPH%>"></iframe>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="panel-footer">
-                          <u>Bar Chart</u>
-                        </div>
-                      </div>
-                    </a>
-                    <a>
-                      <div class="hpanel">
-                        <div class="panel-body file-body" data-toggle="modal" data-target=".bd-example-modal-lg-guage">
-                          <img src="../../../images/SEMOSS_Guage.png" width="250" height="250" alt="">
-                        </div>
-                        <div class="modal fade bd-example-modal-lg-guage" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                              <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;" src="<%=process.env.SEMOSS_LINK_DEV_GUAGE%>"></iframe>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="panel-footer">
-                          <u>Guage Chart</u>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="col-md-4">
-                    <a>
-                      <div class="hpanel">
-                        <div class="panel-body file-body" data-toggle="modal" data-target=".bd-example-modal-lg-guage-sankey">
-                          <img src="../../../images/SEMOSS_Sankey.png" width="250" height="250" alt="">
-                        </div>
-                        <div class="modal fade bd-example-modal-lg-guage-sankey" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                              <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;" src="<%=process.env.SEMOSS_LINK_DEV_SANKEY%>"></iframe>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="panel-footer">
-                          <u>Sankey Chart</u>
-                        </div>
-                      </div>
-                    </a>
-                    <a>
-                      <div class="hpanel">
-                        <div class="panel-body file-body" data-toggle="modal" data-target=".bd-example-modal-lg-sunburst">
-                          <img src="../../../images/SEMOSS_Sunburst.png" width="250" height="250" alt="">
-                        </div>
-                        <div class="modal fade bd-example-modal-lg-sunburst" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                              <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;" src="<%=process.env.SEMOSS_LINK_DEV_SUNBURST%>"></iframe>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="panel-footer">
-                        <u>Sunburst Chart</u>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              </div>
-
-</div>
-
-      <div class="content animate-panel">
-
-        <div class="row">
-
           <div class="col-md-8">
-
             <div class="font-bold m-b-sm">
               Project information
             </div>
-
             <div class="hpanel">
               <div class="panel-body">
 
@@ -497,254 +354,124 @@ button:focus
               </div>
             </div>
 
-            <div class="hpanel">
-
-              <div class="panel-body">
-
-                <p>
-                  <strong>These sweet mornings of spring</strong> which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
-                </p>
-
-                <div class="table-responsive">
-                  <table class="table table-hover table-bordered table-striped">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <span class="label label-success">Added</span>
-                        </td>
-                        <td class="issue-info">
-                          <a href="#">
-                                        Message
-                                    </a>
-                          <br/>
-                          <small>
-                                        This is issue with the coresponding note
-                                    </small>
-                        </td>
-                        <td>
-                          Adrian Novak
-                        </td>
-                        <td>
-                          12.02.2015
-                        </td>
-                        <td class="text-right">
-                          <button class="btn btn-default btn-xs"> Action</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span class="label label-info">Added</span>
-                        </td>
-                        <td class="issue-info">
-                          <a href="#">
-                                        Call
-                                    </a>
-                          <br/>
-                          <small>
-                                        Desktop publishing packages and web page editors now use Lorem Ipsum as their default model text
-                                    </small>
-                        </td>
-                        <td>
-                          Anna Smith
-                        </td>
-                        <td>
-                          10.02.2015
-                        </td>
-                        <td class="text-right">
-                          <button class="btn btn-default btn-xs"> Action</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span class="label label-success">Added</span>
-                        </td>
-                        <td class="issue-info">
-                          <a href="#">
-                                        Message
-                                    </a>
-                          <br/>
-                          <small>
-                                        It is a long established fact that a reader will be
-                                    </small>
-                        </td>
-                        <td>
-                          Anthony Jackson
-                        </td>
-                        <td>
-                          02.03.2015
-                        </td>
-                        <td class="text-right">
-                          <button class="btn btn-default btn-xs"> Action</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span class="label label-info">Added</span>
-                        </td>
-                        <td class="issue-info">
-                          <a href="#">
-                                        Message
-                                    </a>
-                          <br/>
-                          <small>
-                                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                                    </small>
-                        </td>
-                        <td>
-                          Monica Proven
-                        </td>
-                        <td>
-                          01.10.2015
-                        </td>
-                        <td class="text-right">
-                          <button class="btn btn-default btn-xs"> Action</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span class="label label-info">Fixed</span>
-                        </td>
-                        <td class="issue-info">
-                          <a href="#">
-                                        Meeting
-                                    </a>
-                          <br/>
-                          <small>
-                                        Always free from repetition, injected humour, or non-characteristic words etc.
-                                    </small>
-                        </td>
-                        <td>
-                          Alex Ferguson
-                        </td>
-                        <td>
-                          28.11.2015
-                        </td>
-                        <td class="text-right">
-                          <button class="btn btn-default btn-xs"> Action</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span class="label label-success">Fixed</span>
-                        </td>
-                        <td class="issue-info">
-                          <a href="#">
-                                        Message
-                                    </a>
-                          <br/>
-                          <small>
-                                        Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit am
-                                    </small>
-                        </td>
-                        <td>
-                          Mark Conor
-                        </td>
-                        <td>
-                          18.09.2015
-                        </td>
-                        <td class="text-right">
-                          <button class="btn btn-default btn-xs"> Action</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span class="label label-success">Fixed</span>
-                        </td>
-                        <td class="issue-info">
-                          <a href="#">
-                                        Call
-                                    </a>
-                          <br/>
-                          <small>
-                                        Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit am
-                                    </small>
-                        </td>
-                        <td>
-                          Carol Jackson
-                        </td>
-                        <td>
-                          11.03.2015
-                        </td>
-                        <td class="text-right">
-                          <button class="btn btn-default btn-xs"> Action</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span class="label label-success">Fixed</span>
-                        </td>
-                        <td class="issue-info">
-                          <a href="#">
-                                        Message
-                                    </a>
-                          <br/>
-                          <small>
-                                        Content here, content here', making it look like readable English. Many desktop
-                                    </small>
-                        </td>
-                        <td>
-                          Carol Jackson
-                        </td>
-                        <td>
-                          05.04.2015
-                        </td>
-                        <td class="text-right">
-                          <button class="btn btn-default btn-xs"> Action</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span class="label label-info">Fixed</span>
-                        </td>
-                        <td class="issue-info">
-                          <a href="#">
-                                        Meeting
-                                    </a>
-                          <br/>
-                          <small>
-                                        Virginia, looked up one of the more obscure Latin words, consectetur
-                                    </small>
-                        </td>
-                        <td>
-                          Monica Smith
-                        </td>
-                        <td>
-                          10.06.2014
-                        </td>
-                        <td class="text-right">
-                          <button class="btn btn-default btn-xs"> Action</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span class="label label-success">Fixed</span>
-                        </td>
-                        <td class="issue-info">
-                          <a href="#">
-                                        Meeting
-                                    </a>
-                          <br/>
-                          <small>
-                                        Injected humour, or randomised words which don't l
-                                    </small>
-                        </td>
-                        <td>
-                          Anna Johnson
-                        </td>
-                        <td>
-                          13.05.2014
-                        </td>
-                        <td class="text-right">
-                          <button class="btn btn-default btn-xs"> Action</button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
+            <div class="font-bold m-b-sm">
+              Project charts
             </div>
-          </div>
+              <div class="row">
+                    <div class="col-md-12">
+                      <div class="row" align="center">
+                        <div class="col-md-6">
+                          <a>
+                            <div class="hpanel">
+                              <div class="panel-body file-body" data-toggle="modal" data-target=".bd-example-modal-lg-bubble">
+                                <img src="../../../images/SEMOSS_Bubble.png" width="250" height="250" alt="">
+                              </div>
+                              <div class="modal fade bd-example-modal-lg-bubble" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                  <div class="modal-content">
+                                    <iframe frameborder="0" width="100%" height="620" style="border: 1px solid #ccc;" src="<%=process.env.SEMOSS_LINK_BOX_BUBBLE%>"></iframe>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="panel-footer">
+                                <u>Bubble Chart</u>
+                              </div>
+                            </div>
+                          </a>
+                          <a>
+                            <div class="hpanel">
+                              <div class="panel-body file-body" data-toggle="modal" data-target=".bd-example-modal-lg-cloud">
+                                <img src="../../../images/SEMOSS_Cloud.png" width="250" height="250" alt="">
+                              </div>
+                              <div class="modal fade bd-example-modal-lg-cloud" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                  <div class="modal-content">
+                                    <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;" src="<%=process.env.SEMOSS_LINK_BOX_CLOUD%>"></iframe>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="panel-footer">
+                                <u>Cloud Chart</u>
+                              </div>
+                            </div>
+                          </a>
+                          <a>
+                            <div class="hpanel">
+                              <div class="panel-body file-body" data-toggle="modal" data-target=".bd-example-modal-lg-guage">
+                                <img src="../../../images/SEMOSS_Guage.png" width="250" height="250" alt="">
+                              </div>
+                              <div class="modal fade bd-example-modal-lg-guage" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                  <div class="modal-content">
+                                    <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;" src="<%=process.env.SEMOSS_LINK_BOX_AREA%>"></iframe>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="panel-footer">
+                                <u>Area Chart</u>
+                              </div>
+                            </div>
+                          </a>
+
+                        </div>
+                        <div class="col-md-6">
+                          <a>
+                            <div class="hpanel">
+                              <div class="panel-body file-body" data-toggle="modal" data-target=".bd-example-modal-lg-sunburst">
+                                <img src="../../../images/SEMOSS_Sunburst.png" width="250" height="250" alt="">
+                              </div>
+                              <div class="modal fade bd-example-modal-lg-sunburst" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                  <div class="modal-content">
+                                    <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;" src="<%=process.env.SEMOSS_LINK_BOX_SUNBURST%>"></iframe>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="panel-footer">
+                              <u>Sunburst Chart</u>
+                              </div>
+                            </div>
+                          </a>
+                          <a>
+                            <div class="hpanel">
+                              <div class="panel-body file-body" data-toggle="modal" data-target=".bd-example-modal-lg-graph">
+                                <img src="../../../images/SEMOSS_Graph.png" width="250" height="250" alt="">
+                              </div>
+                              <div class="modal fade bd-example-modal-lg-graph" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                  <div class="modal-content">
+                                    <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;" src="<%=process.env.SEMOSS_LINK_BOX_GRAPH%>"></iframe>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="panel-footer">
+                                <u>Scatter Chart</u>
+                              </div>
+                            </div>
+                          </a>
+                          <a>
+                            <div class="hpanel">
+                              <div class="panel-body file-body" data-toggle="modal" data-target=".bd-example-modal-lg-guage-sankey">
+                                <img src="../../../images/SEMOSS_Sankey.png" width="250" height="250" alt="">
+                              </div>
+                              <div class="modal fade bd-example-modal-lg-guage-sankey" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                  <div class="modal-content">
+                                    <iframe frameborder="0" width="100%" height="600" style="border: 1px solid #ccc;" src="<%=process.env.SEMOSS_LINK_BOX_PIE%>"></iframe>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="panel-footer">
+                                <u>Pie Chart</u>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+
+      </div>
           <div class="col-md-4">
 
             <div class="font-bold m-b-sm">

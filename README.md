@@ -4,6 +4,7 @@
   npm test
 
   Dropdb the_refactory-dev
+  Dropdb code_mining-dev
   Createdb code_mining-dev
   Knex migrate:latest
   Knex seed:run
@@ -53,6 +54,9 @@
     horizontal bars). Click on the "Save Visualization" option and put
     "call_chain_demo" under the "Enter an Insight Title" section. Click "Save"
     then "Save As New".
+
+    Run browser in security-disabled mode:
+    "open /Applications/Google\ Chrome.app --args --disable-web-security --user-data-dir"
 
     You should now be able to see your new visualization at
     http://localhost:5355/SemossWeb/#!/insight?type=single&engine=call_chain_demo&id=2&panel=0
